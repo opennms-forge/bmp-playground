@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model-import xmlns="http://xmlns.opennms.org/xsd/config/model-import" date-stamp="2016-10-28T10:50:02.025Z" foreign-source="bgp-routers" last-import="2016-10-28T10:51:29.354Z">
+  <node location="Default" foreign-id="r01" node-label="r01">
+    <interface ip-addr="192.168.10.5" status="1" snmp-primary="N">
+      <monitored-service service-name="ICMP"/>
+    </interface>
+    <asset name="longitude" value="9.1685303"/>
+    <asset name="latitude" value="48.8258763"/>
+  </node>
+
+  <node location="Default" foreign-id="r02" node-label="r02">
+    <interface ip-addr="192.168.10.6" status="1" snmp-primary="N">
+      <monitored-service service-name="ICMP"/>
+    </interface>
+    <asset name="longitude" value="9.1685303"/>
+    <asset name="latitude" value="48.8258763"/>
+  </node>
+
+  <node location="Default" foreign-id="r03" node-label="r03">
+    <interface ip-addr="192.168.10.7" status="1" snmp-primary="N">
+      <monitored-service service-name="ICMP"/>
+    </interface>
+    <asset name="longitude" value="9.1685303"/>
+    <asset name="latitude" value="48.8258763"/>
+  </node>
+
+  <node location="location" foreign-id="location-r01" node-label="location-r01">
+    <interface ip-addr="192.168.50.5" status="1" snmp-primary="N">
+      <monitored-service service-name="ICMP"/>
+    </interface>
+    <asset name="longitude" value="-78.8463367"/>
+    <asset name="latitude" value="35.7461488"/>
+  </node>
+
+  <node location="location" foreign-id="location-r02" node-label="location-r02">
+    <interface ip-addr="192.168.50.6" status="1" snmp-primary="N">
+      <monitored-service service-name="ICMP"/>
+    </interface>
+    <asset name="longitude" value="-78.8463367"/>
+    <asset name="latitude" value="35.7461488"/>
+  </node>
+
+  <node location="location" foreign-id="location-r03" node-label="location-r03">
+    <interface ip-addr="192.168.50.7" status="1" snmp-primary="N">
+      <monitored-service service-name="ICMP"/>
+    </interface>
+    <asset name="longitude" value="-78.8463367"/>
+    <asset name="latitude" value="35.7461488"/>
+  </node>
+</model-import>

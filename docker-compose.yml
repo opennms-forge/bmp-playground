@@ -1,0 +1,204 @@
+version: '3'
+
+networks:
+# OpenNMS Minion network
+  net-p2p-opennms:
+    ipam:
+      config:
+        - subnet: 192.168.40.0/24
+
+# BGP Routing network for location Default
+  net-r01:
+    ipam:
+      config:
+        - subnet: 192.168.255.0/24
+  net-r02:
+    ipam:
+      config:
+        - subnet: 192.168.254.0/24
+  net-r03:
+    ipam:
+      config:
+        - subnet: 192.168.253.0/24
+  net-peer:
+    ipam:
+      config:
+        - subnet: 10.0.255.0/24
+  net-mgmt:
+    ipam:
+      config:
+        - subnet: 192.168.10.0/24
+
+# BGP Routing network for a remote location
+  net-location-r01:
+    ipam:
+      config:
+        - subnet: 192.168.250.0/24
+  net-location-r02:
+    ipam:
+      config:
+        - subnet: 192.168.249.0/24
+  net-location-r03:
+    ipam:
+      config:
+        - subnet: 192.168.248.0/24
+  net-location-peer:
+    ipam:
+      config:
+        - subnet: 10.0.250.0/24
+  net-location-mgmt:
+    ipam:
+      config:
+        - subnet: 192.168.50.0/24
+
+
+volumes:
+  data-postgres: {}
+  data-opennms: {}
+
+services:
+  database:
+    image: postgres:12
+    container_name: database
+    environment:
+      - TZ=Europe/Berlin
+      - POSTGRES_HOST=database
+      - POSTGRES_PORT=5432
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - data-postgres:/var/lib/postgresql/data:delegated
+    networks:
+      net-mgmt:
+        ipv4_address: 192.168.10.3
+
+  horizon:
+    image: horizon:nms-12415
+    container_name: horizon
+    environment:
+      - TZ=Europe/Berlin
+      - POSTGRES_HOST=database
+      - POSTGRES_PORT=5432
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - OPENNMS_DBNAME=opennms
+      - OPENNMS_DBUSER=opennms
+      - OPENNMS_DBPASS=opennms
+      - JAVA_OPTS=-Xmx4096m -XX:MaxMetaspaceSize=2048m
+    networks:
+      net-mgmt:
+        ipv4_address: 192.168.10.4
+      net-p2p-opennms:
+        ipv4_address: 192.168.40.5
+    volumes:
+      - ./horizon-overlay:/opt/opennms-overlay
+    command: ["-s"]
+    ports:
+      - "8980:8980"
+      - "8101:8101"
+      - "61616:61616/tcp"
+      - "11019:11019/tcp"
+
+  minion:
+    image: minion:nms-12415
+    container_name: minion
+    environment:
+      - TZ=Europe/Berlin
+      - MINION_ID=minion-01
+      - MINION_LOCATION=location
+      - OPENNMS_BROKER_URL=tcp://horizon:61616
+      - OPENNMS_HTTP_URL=http://horizon:8980/opennms
+    volumes:
+      - ./minion-overlay:/opt/minion-etc-overlay
+    networks: 
+      net-p2p-opennms:
+        ipv4_address: 192.168.40.6
+      net-location-mgmt:
+        ipv4_address: 192.168.50.4
+    ports:
+      - "8201:8201/tcp"
+
+  r01:
+    image: opennms/gobgp:2.9.0
+    container_name: r01
+    volumes: 
+      - ./r01/gobgpd.conf:/gobgpd.conf
+    networks:
+      net-r01:
+        ipv4_address: 192.168.255.5
+      net-peer:
+        ipv4_address: 10.0.255.5
+      net-mgmt:
+        ipv4_address: 192.168.10.5
+    command: ["-f", "/gobgpd.conf"]
+
+  r02:
+    image: opennms/gobgp:2.9.0
+    container_name: r02
+    volumes: 
+      - ./r02/gobgpd.conf:/gobgpd.conf
+    networks:
+      net-r02:
+        ipv4_address: 192.168.254.5
+      net-peer:
+        ipv4_address: 10.0.255.6
+      net-mgmt:
+        ipv4_address: 192.168.10.6
+    command: ["-f", "/gobgpd.conf"]
+
+  r03:
+    image: opennms/gobgp:2.9.0
+    container_name: r03
+    volumes: 
+      - ./r03/gobgpd.conf:/gobgpd.conf
+    networks:
+      net-r03:
+        ipv4_address: 192.168.253.5
+      net-peer:
+        ipv4_address: 10.0.255.7
+      net-mgmt:
+        ipv4_address: 192.168.10.7
+    command: ["-f", "/gobgpd.conf"]
+
+### Router in remote location
+  location-r01:
+    image: opennms/gobgp:2.9.0
+    container_name: location-r01
+    volumes: 
+      - ./location-r01/gobgpd.conf:/gobgpd.conf
+    networks:
+      net-location-r01:
+        ipv4_address: 192.168.250.5
+      net-location-peer:
+        ipv4_address: 10.0.250.5
+      net-location-mgmt:
+        ipv4_address: 192.168.50.5
+    command: ["-f", "/gobgpd.conf"]
+
+  location-r02:
+    image: opennms/gobgp:2.9.0
+    container_name: location-r02
+    volumes: 
+      - ./location-r02/gobgpd.conf:/gobgpd.conf
+    networks:
+      net-location-r02:
+        ipv4_address: 192.168.249.5
+      net-location-peer:
+        ipv4_address: 10.0.250.6
+      net-location-mgmt:
+        ipv4_address: 192.168.50.6
+    command: ["-f", "/gobgpd.conf"]
+
+  location-r03:
+    image: opennms/gobgp:2.9.0
+    container_name: location-r03
+    volumes: 
+      - ./location-r03/gobgpd.conf:/gobgpd.conf
+    networks:
+      net-location-r03:
+        ipv4_address: 192.168.248.5
+      net-location-peer:
+        ipv4_address: 10.0.250.7
+      net-location-mgmt:
+        ipv4_address: 192.168.50.7
+    command: ["-f", "/gobgpd.conf"]

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns
+     http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+    <key id="breadcrumb-strategy" for="graphml" attr.name="breadcrumb-strategy" attr.type="string"/>
+    <key id="label" for="all" attr.name="label" attr.type="string"></key>
+    <key id="description" for="graph" attr.name="description" attr.type="string"></key>
+    <key id="namespace" for="graph" attr.name="namespace" attr.type="string"></key>
+    <key id="focus-strategy" for="graph" attr.name="focus-strategy" attr.type="string"></key>
+    <key id="focus-ids" for="graph" attr.name="focus-ids" attr.type="string"></key>
+    <key id="foreignSource" for="node" attr.name="foreignSource" attr.type="string"></key>
+    <key id="foreignID" for="node" attr.name="foreignID" attr.type="string"></key>
+    <key id="preferred-layout" for="graph" attr.name="preferred-layout" attr.type="string"></key>
+    <key id="vertex-status-provider" for="graph" attr.name="vertex-status-provider" attr.type="boolean"></key>
+    <key id="iconKey" for="node" attr.name="iconKey" attr.type="string"></key>
+    <key id="semantic-zoom-level" for="graph" attr.name="semantic-zoom-level" attr.type="int"/>
+    <data key="label">Network Layer 3</data>
+    <data key="breadcrumb-strategy">NONE</data>
+
+    <graph id="topology" edgedefault="undirected">
+        <data key="namespace">layer3-network</data>
+        <data key="focus-strategy">ALL</data>
+        <data key="vertex-status-provider">true</data>
+
+        <!-- Local System -->
+        <node id="database">
+            <data key="foreignSource">opennms-stack</data>
+            <data key="label">database</data>
+            <data key="foreignID">database</data>
+            <data key="iconKey">database</data>
+        </node>
+        <node id="horizon">
+            <data key="foreignSource">demo-environment</data>
+            <data key="label">horizon</data>
+            <data key="foreignID">horizon</data>
+            <data key="iconKey">opennms_server</data>
+        </node>
+
+        <node id="r01">
+            <data key="foreignSource">bgp-routers</data>
+            <data key="label">r01</data>
+            <data key="foreignID">r01</data>
+            <data key="iconKey">server</data>
+        </node>
+
+        <node id="r02">
+            <data key="foreignSource">bgp-routers</data>
+            <data key="label">r02</data>
+            <data key="foreignID">r02</data>
+            <data key="iconKey">server</data>
+        </node>
+
+        <node id="r03">
+            <data key="foreignSource">bgp-routers</data>
+            <data key="label">r03</data>
+            <data key="foreignID">r03</data>
+            <data key="iconKey">server</data>
+        </node>
+
+        <node id="location-r01">
+            <data key="foreignSource">bgp-routers</data>
+            <data key="label">location-r01</data>
+            <data key="foreignID">location-r01</data>
+            <data key="iconKey">server</data>
+        </node>
+
+        <node id="location-r02">
+            <data key="foreignSource">bgp-routers</data>
+            <data key="label">location-r02</data>
+            <data key="foreignID">location-r02</data>
+            <data key="iconKey">server</data>
+        </node>
+
+        <node id="location-r03">
+            <data key="foreignSource">bgp-routers</data>
+            <data key="label">location-r03</data>
+            <data key="foreignID">location-r03</data>
+            <data key="iconKey">server</data>
+        </node>
+
+        <!-- Networks -->
+        <node id="net-central">
+            <data key="label">192.168.10.0/24</data>
+            <data key="iconKey">vmware-network</data>
+        </node>
+        <node id="net-location">
+            <data key="label">192.168.50.0/24</data>
+            <data key="iconKey">vmware-network</data>
+        </node>
+
+        <!-- Branch -->
+        <node id="minion-01">
+            <data key="foreignSource">Minions</data>
+            <data key="label">minion-01</data>
+            <data key="foreignID">minion-01</data>
+        </node>
+
+        <edge id="horizon-net-central" source="horizon" target="net-central"/>
+        <edge id="database-net-central" source="database" target="net-central"/>
+        <edge id="r01-net-central" source="r01" target="net-central"/>
+        <edge id="r02-net-central" source="r02" target="net-central"/>
+        <edge id="r03-net-central" source="r03" target="net-central"/>
+
+        <edge id="minion-01-net-central" source="minion-01" target="net-central"/>
+        <edge id="minion-01-net-location" source="minion-01" target="net-location"/>
+
+        <edge id="location-r01-net-location" source="location-r01" target="net-location"/>
+        <edge id="location-r02-net-location" source="location-r02" target="net-location"/>
+        <edge id="location-r03-net-location" source="location-r03" target="net-location"/>
+    </graph>
+</graphml>

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns
+     http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+    <key id="breadcrumb-strategy" for="graphml" attr.name="breadcrumb-strategy" attr.type="string"/>
+    <key id="label" for="all" attr.name="label" attr.type="string"></key>
+    <key id="description" for="graph" attr.name="description" attr.type="string"></key>
+    <key id="namespace" for="graph" attr.name="namespace" attr.type="string"></key>
+    <key id="focus-strategy" for="graph" attr.name="focus-strategy" attr.type="string"></key>
+    <key id="focus-ids" for="graph" attr.name="focus-ids" attr.type="string"></key>
+    <key id="foreignSource" for="node" attr.name="foreignSource" attr.type="string"></key>
+    <key id="foreignID" for="node" attr.name="foreignID" attr.type="string"></key>
+    <key id="preferred-layout" for="graph" attr.name="preferred-layout" attr.type="string"></key>
+    <key id="vertex-status-provider" for="graph" attr.name="vertex-status-provider" attr.type="boolean"></key>
+    <key id="iconKey" for="node" attr.name="iconKey" attr.type="string"></key>
+    <key id="semantic-zoom-level" for="graph" attr.name="semantic-zoom-level" attr.type="int"/>
+    <data key="label">Network BGP</data>
+    <data key="breadcrumb-strategy">NONE</data>
+
+    <graph id="topology" edgedefault="undirected">
+        <data key="namespace">network-bgp</data>
+        <data key="focus-strategy">ALL</data>
+        <data key="vertex-status-provider">true</data>
+
+        <node id="r01">
+            <data key="foreignSource">bgp-routers</data>
+            <data key="label">r01</data>
+            <data key="foreignID">r01</data>
+            <data key="iconKey">server</data>
+        </node>
+
+        <node id="r02">
+            <data key="foreignSource">bgp-routers</data>
+            <data key="label">r02</data>
+            <data key="foreignID">r02</data>
+            <data key="iconKey">server</data>
+        </node>
+
+        <node id="r03">
+            <data key="foreignSource">bgp-routers</data>
+            <data key="label">r03</data>
+            <data key="foreignID">r03</data>
+            <data key="iconKey">server</data>
+        </node>
+
+        <node id="location-r01">
+            <data key="foreignSource">bgp-routers</data>
+            <data key="label">location-r01</data>
+            <data key="foreignID">location-r01</data>
+            <data key="iconKey">server</data>
+        </node>
+
+        <node id="location-r02">
+            <data key="foreignSource">bgp-routers</data>
+            <data key="label">location-r02</data>
+            <data key="foreignID">location-r02</data>
+            <data key="iconKey">server</data>
+        </node>
+
+        <node id="location-r03">
+            <data key="foreignSource">bgp-routers</data>
+            <data key="label">location-r03</data>
+            <data key="foreignID">location-r03</data>
+            <data key="iconKey">server</data>
+        </node>
+
+        <!-- Networks -->
+        <node id="net-as64512">
+            <data key="label">AS64512</data>
+            <data key="iconKey">vmware-network</data>
+        </node>
+
+        <node id="net-as65001">
+            <data key="label">AS65001</data>
+            <data key="iconKey">vmware-network</data>
+        </node>
+
+        <node id="net-as65002">
+            <data key="label">AS65002</data>
+            <data key="iconKey">vmware-network</data>
+        </node>
+
+        <node id="net-as64522">
+            <data key="label">AS64522</data>
+            <data key="iconKey">vmware-network</data>
+        </node>
+
+        <node id="net-as65010">
+            <data key="label">AS65010</data>
+            <data key="iconKey">vmware-network</data>
+        </node>
+
+        <node id="net-as65011">
+            <data key="label">AS65011</data>
+            <data key="iconKey">vmware-network</data>
+        </node>
+
+        <!-- Router to AS assignment-->
+        <edge id="r01-net-as64512" source="r01" target="net-as64512"/>
+        <edge id="r02-net-as65001" source="r02" target="net-as65001"/>
+        <edge id="r03-net-as65002" source="r03" target="net-as65002"/>
+
+        <edge id="location-r01-net-as64522" source="location-r01" target="net-as64522"/>
+        <edge id="location-r02-net-as65010" source="location-r02" target="net-as65010"/>
+        <edge id="location-r03-net-as65011" source="location-r03" target="net-as65011"/>
+
+        <!-- Peerings in local location -->
+        <edge id="r01-peering-r02" source="r01" target="r02"/>
+        <edge id="r01-peering-r03" source="r01" target="r03"/>
+
+        <edge id="r02-peering-r01" source="r02" target="r01"/>
+        <edge id="r02-peering-r03" source="r02" target="r03"/>
+
+        <edge id="r03-peering-r01" source="r03" target="r01"/>
+        <edge id="r03-peering-r02" source="r03" target="r02"/>
+
+        <!-- Peerings in remote location -->
+        <edge id="location-r01-peering-location-r02" source="location-r01" target="location-r02"/>
+        <edge id="location-r01-peering-location-r03" source="location-r01" target="location-r03"/>
+
+        <edge id="location-r02-peering-location-r01" source="location-r02" target="location-r01"/>
+        <edge id="location-r02-peering-location-r03" source="location-r02" target="location-r03"/>
+
+        <edge id="location-r03-peering-location-r01" source="location-r03" target="location-r01"/>
+        <edge id="location-r03-peering-location-r02" source="location-r03" target="location-r02"/>
+    </graph>
+</graphml>

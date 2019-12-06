@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model-import xmlns="http://xmlns.opennms.org/xsd/config/model-import" date-stamp="2016-10-28T10:50:02.025Z" foreign-source="opennms-stack" last-import="2016-10-28T10:51:29.354Z">
+  <node location="Default" foreign-id="database" node-label="database">
+    <interface ip-addr="192.168.10.3" status="1" snmp-primary="N">
+      <monitored-service service-name="ICMP"/>
+    </interface>
+    <asset name="longitude" value="9.1685303"/>
+    <asset name="latitude" value="48.8258763"/>
+  </node>
+
+  <node location="Default" foreign-id="horizon" node-label="horizon">
+    <interface ip-addr="192.168.10.4" status="1" snmp-primary="N">
+      <monitored-service service-name="ICMP"/>
+    </interface>
+    <asset name="longitude" value="9.1685303"/>
+    <asset name="latitude" value="48.8258763"/>
+  </node>
+</model-import>
