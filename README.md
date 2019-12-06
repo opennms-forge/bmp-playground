@@ -1,5 +1,7 @@
 # BGP monitoring with BGP playground
 
+DISCLAIMER: Requires snapshot container images from the [features/bmp](https://github.com/OpenNMS/opennms/tree/features/bmp) branch and is just for experimental usage.
+
 This repository has a test environment to implement BGP monitoring using BMP protocol.
 This environment provides the following network topology.
 
@@ -16,6 +18,8 @@ BGP Topology
 ![](bgp-topology.png)
 
 ## Usage
+
+Download Minion and Horizon container images from the [artifacts](https://circleci.com/gh/OpenNMS/opennms/tree/features%2Fbmp) from features/bmp branch and load them with `docker load -i`.
 
 Clone the repository and startup the application stack
 
