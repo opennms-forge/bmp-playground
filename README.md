@@ -5,7 +5,15 @@ This environment provides the following network topology.
 
 ![](bgp-playground.png)
 
+There are two custom GraphML topologies provided:
 
+Layer 3 Network topology
+
+![](layer3-topology.png)
+
+BGP Topology
+
+![](bgp-topology.png)
 
 ## Usage
 
