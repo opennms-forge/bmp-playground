@@ -1,4 +1,4 @@
-# BGP monitoring with BGP playground
+# Playground to monitor BGP with BMP
 
 DISCLAIMER: Requires snapshot container images from the [features/bmp](https://github.com/OpenNMS/opennms/tree/features/bmp) branch and is just for experimental usage.
 
