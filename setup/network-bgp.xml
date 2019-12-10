@@ -18,7 +18,7 @@
     <data key="label">Network BGP</data>
     <data key="breadcrumb-strategy">NONE</data>
 
-    <graph id="topology" edgedefault="undirected">
+    <graph id="bgp-topology" edgedefault="undirected">
         <data key="namespace">network-bgp</data>
         <data key="focus-strategy">ALL</data>
         <data key="vertex-status-provider">true</data>
