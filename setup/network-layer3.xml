@@ -18,7 +18,7 @@
     <data key="label">Network Layer 3</data>
     <data key="breadcrumb-strategy">NONE</data>
 
-    <graph id="topology" edgedefault="undirected">
+    <graph id="layer3-topology" edgedefault="undirected">
         <data key="namespace">layer3-network</data>
         <data key="focus-strategy">ALL</data>
         <data key="vertex-status-provider">true</data>
