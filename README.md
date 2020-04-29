@@ -1,7 +1,5 @@
 # Playground to monitor BGP with BMP
 
-DISCLAIMER: Requires snapshot container images from the [features/bmp](https://github.com/OpenNMS/opennms/tree/features/bmp) branch and is just for experimental usage.
-
 This repository has a test environment to implement BGP monitoring using BMP protocol.
 This environment provides the following network topology.
 
