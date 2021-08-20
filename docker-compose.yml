@@ -73,7 +73,7 @@ services:
         ipv4_address: 192.168.10.3
 
   horizon:
-    image: opennms/horizon:26.0.0
+    image: opennms/horizon:28.0.2
     container_name: horizon
     environment:
       - TZ=Europe/Berlin
@@ -100,7 +100,7 @@ services:
       - "11019:11019/tcp"
 
   minion:
-    image: opennms/minion:26.0.0
+    image: opennms/minion:28.0.2
     container_name: minion
     environment:
       - TZ=Europe/Berlin
@@ -119,7 +119,7 @@ services:
       - "8201:8201/tcp"
 
   r01:
-    image: opennms/gobgp:2.9.0
+    image: labmonkeys/gobgp:2.30.0-20210820
     container_name: r01
     volumes: 
       - ./r01/gobgpd.conf:/gobgpd.conf
@@ -133,7 +133,7 @@ services:
     command: ["-f", "/gobgpd.conf"]
 
   r02:
-    image: opennms/gobgp:2.9.0
+    image: labmonkeys/gobgp:2.30.0-20210820
     container_name: r02
     volumes: 
       - ./r02/gobgpd.conf:/gobgpd.conf
@@ -147,7 +147,7 @@ services:
     command: ["-f", "/gobgpd.conf"]
 
   r03:
-    image: opennms/gobgp:2.9.0
+    image: labmonkeys/gobgp:2.30.0-20210820
     container_name: r03
     volumes: 
       - ./r03/gobgpd.conf:/gobgpd.conf
@@ -162,7 +162,7 @@ services:
 
 ### Router in remote location
   location-r01:
-    image: opennms/gobgp:2.9.0
+    image: labmonkeys/gobgp:2.30.0-20210820
     container_name: location-r01
     volumes: 
       - ./location-r01/gobgpd.conf:/gobgpd.conf
@@ -176,7 +176,7 @@ services:
     command: ["-f", "/gobgpd.conf"]
 
   location-r02:
-    image: opennms/gobgp:2.9.0
+    image: labmonkeys/gobgp:2.30.0-20210820
     container_name: location-r02
     volumes: 
       - ./location-r02/gobgpd.conf:/gobgpd.conf
@@ -190,7 +190,7 @@ services:
     command: ["-f", "/gobgpd.conf"]
 
   location-r03:
-    image: opennms/gobgp:2.9.0
+    image: labmonkeys/gobgp:2.30.0-20210820
     container_name: location-r03
     volumes: 
       - ./location-r03/gobgpd.conf:/gobgpd.conf
