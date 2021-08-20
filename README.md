@@ -17,8 +17,6 @@ BGP Topology
 
 ## Usage
 
-Download Minion and Horizon container images from the [artifacts](https://circleci.com/gh/OpenNMS/opennms/tree/features%2Fbmp) from features/bmp branch and load them with `docker load -i`.
-
 Clone the repository and startup the application stack
 
 ```
