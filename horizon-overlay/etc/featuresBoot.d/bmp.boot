@@ -1,0 +1,1 @@
+opennms-telemetry-bmp-stats
