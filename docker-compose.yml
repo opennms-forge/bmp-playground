@@ -55,10 +55,11 @@ networks:
 volumes:
   data-postgres: {}
   data-opennms: {}
+  data-grafana: {}
 
 services:
   database:
-    image: postgres:12
+    image: timescale/timescaledb:2.8.1-pg12
     container_name: database
     environment:
       - TZ=Europe/Berlin
@@ -73,7 +74,7 @@ services:
         ipv4_address: 192.168.10.3
 
   horizon:
-    image: opennms/horizon:28.0.2
+    image: opennms/horizon:31.0.1
     container_name: horizon
     environment:
       - TZ=Europe/Berlin
@@ -99,8 +100,31 @@ services:
       - "61616:61616/tcp"
       - "11019:11019/tcp"
 
+  grafana:
+    image: docker.io/grafana/grafana:8.5.15
+    container_name: grafana
+    hostname: grafana
+    depends_on:
+      - horizon
+    networks:
+      net-p2p-opennms:
+        ipv4_address: 192.168.40.4
+      net-mgmt:
+        ipv4_address: 192.168.10.100
+    environment:
+      - TZ=${TIMEZONE:-America/New_York}
+      - GF_INSTALL_PLUGINS=https://github.com/OpenNMS/opennms-helm/releases/download/v7.3.0/opennms-helm-app-7.3.0.zip;opennms-helm-app,grafana-piechart-panel,neocat-cal-heatmap-panel,briangann-datatable-panel
+      - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
+      - GF_AUTH_ANONYMOUS_ENABLED=true
+      - GF_AUTH_BASIC_ENABLED=false
+    volumes:
+      - data-grafana:/var/lib/grafana
+      - ./grafana:/etc/grafana/provisioning/
+    ports:
+      - "3000:3000/tcp"
+
   minion:
-    image: opennms/minion:28.0.2
+    image: opennms/minion:31.0.1
     container_name: minion
     environment:
       - TZ=Europe/Berlin
@@ -119,8 +143,10 @@ services:
       - "8201:8201/tcp"
 
   r01:
-    image: labmonkeys/gobgp:2.30.0-20210820
+    image: quay.io/labmonkeys/gobgp:3.8.0.b1070
     container_name: r01
+    environment:
+      - TZ=Europe/Berlin
     volumes: 
       - ./r01/gobgpd.conf:/gobgpd.conf
     networks:
@@ -133,8 +159,10 @@ services:
     command: ["-f", "/gobgpd.conf"]
 
   r02:
-    image: labmonkeys/gobgp:2.30.0-20210820
+    image: quay.io/labmonkeys/gobgp:3.8.0.b1070
     container_name: r02
+    environment:
+      - TZ=Europe/Berlin
     volumes: 
       - ./r02/gobgpd.conf:/gobgpd.conf
     networks:
@@ -147,8 +175,10 @@ services:
     command: ["-f", "/gobgpd.conf"]
 
   r03:
-    image: labmonkeys/gobgp:2.30.0-20210820
+    image: quay.io/labmonkeys/gobgp:3.8.0.b1070
     container_name: r03
+    environment:
+      - TZ=Europe/Berlin
     volumes: 
       - ./r03/gobgpd.conf:/gobgpd.conf
     networks:
@@ -162,8 +192,10 @@ services:
 
 ### Router in remote location
   location-r01:
-    image: labmonkeys/gobgp:2.30.0-20210820
+    image: quay.io/labmonkeys/gobgp:3.8.0.b1070
     container_name: location-r01
+    environment:
+      - TZ=Europe/Berlin
     volumes: 
       - ./location-r01/gobgpd.conf:/gobgpd.conf
     networks:
@@ -176,8 +208,10 @@ services:
     command: ["-f", "/gobgpd.conf"]
 
   location-r02:
-    image: labmonkeys/gobgp:2.30.0-20210820
+    image: quay.io/labmonkeys/gobgp:3.8.0.b1070
     container_name: location-r02
+    environment:
+      - TZ=Europe/Berlin
     volumes: 
       - ./location-r02/gobgpd.conf:/gobgpd.conf
     networks:
@@ -190,8 +224,10 @@ services:
     command: ["-f", "/gobgpd.conf"]
 
   location-r03:
-    image: labmonkeys/gobgp:2.30.0-20210820
+    image: quay.io/labmonkeys/gobgp:3.8.0.b1070
     container_name: location-r03
+    environment:
+      - TZ=Europe/Berlin
     volumes: 
       - ./location-r03/gobgpd.conf:/gobgpd.conf
     networks:

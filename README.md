@@ -42,3 +42,14 @@ Show BGP neighborhood status
 ```
 docker-compose exec r01 gobgp neighbor
 ```
+
+Add a route
+```
+docker-compose exec r02 gobgp global rib add 10.36.0.0/16 -a ipv4
+```
+
+Debug and trigger statistics
+```
+admin@opennms()> log:set DEBUG org.opennms.netmgt.telemetry.protocols.bmp
+admin@opennms()> bmp-stats-update
+```

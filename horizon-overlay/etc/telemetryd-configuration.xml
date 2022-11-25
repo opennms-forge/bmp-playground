@@ -16,7 +16,7 @@
         </rrd>
       </package>
     </adapter>
-    <adapter name="BMP-PeerStatus-Adapter" class-name="org.opennms.netmgt.telemetry.protocols.bmp.adapter.BmpPeerStatusAdapter" enabled="true">
-    </adapter>
+    <adapter name="BMP-PeerStatus-Adapter" class-name="org.opennms.netmgt.telemetry.protocols.bmp.adapter.BmpPeerStatusAdapter" enabled="true"/>
+    <adapter name="BMP-Persisting-Adapter" class-name="org.opennms.netmgt.telemetry.protocols.bmp.adapter.BmpPersistingAdapter" enabled="true"/>
   </queue>
 </telemetryd-config>
