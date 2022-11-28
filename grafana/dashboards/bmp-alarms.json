@@ -1,0 +1,1349 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "links": [
+    {
+      "asDropdown": false,
+      "icon": "external link",
+      "includeVars": false,
+      "keepTime": false,
+      "tags": [],
+      "targetBlank": true,
+      "title": "Layer 3",
+      "tooltip": "Layer 3",
+      "type": "link",
+      "url": "http://localhost:8980/opennms/topology?provider=Network Layer 3"
+    },
+    {
+      "asDropdown": false,
+      "icon": "external link",
+      "includeVars": false,
+      "keepTime": false,
+      "tags": [],
+      "targetBlank": true,
+      "title": "BGP",
+      "tooltip": "BGP",
+      "type": "link",
+      "url": "http://localhost:8980/opennms/topology?provider=Network BGP"
+    }
+  ],
+  "liveNow": false,
+  "panels": [
+    {
+      "columns": [
+        {
+          "$$hashKey": "object:1353",
+          "desc": true,
+          "featured": true,
+          "hidden": false,
+          "resource": "isSituation",
+          "sort": false,
+          "style": {
+            "$$hashKey": "object:650",
+            "alias": "Situation",
+            "align": "center",
+            "clip": true,
+            "pattern": "Is Situation",
+            "type": "checkbox",
+            "width": "2em"
+          },
+          "text": "Is Situation",
+          "title": "Situation"
+        },
+        {
+          "$$hashKey": "object:34",
+          "desc": true,
+          "hidden": false,
+          "sort": true,
+          "style": {
+            "$$hashKey": "object:642",
+            "align": "center",
+            "clip": true,
+            "displayAs": "icon",
+            "pattern": "Severity",
+            "type": "severity",
+            "width": "3em"
+          },
+          "text": "Severity",
+          "title": "Severity"
+        },
+        {
+          "$$hashKey": "object:35",
+          "hidden": false,
+          "sort": false,
+          "style": {
+            "$$hashKey": "object:648",
+            "alias": "",
+            "align": "right",
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "decimals": 0,
+            "pattern": "Count",
+            "type": "number",
+            "unit": "short",
+            "width": "3em"
+          },
+          "text": "Count",
+          "title": "Count"
+        },
+        {
+          "$$hashKey": "object:36",
+          "desc": true,
+          "hidden": false,
+          "sort": false,
+          "style": {
+            "$$hashKey": "object:643",
+            "alias": "Last Occurrence",
+            "align": "center",
+            "clip": true,
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "pattern": "/Last Event Time/",
+            "type": "date",
+            "width": "5em"
+          },
+          "text": "Last Event Time",
+          "title": "Last Occurrence"
+        },
+        {
+          "$$hashKey": "object:37",
+          "desc": true,
+          "hidden": false,
+          "sort": false,
+          "style": {
+            "$$hashKey": "object:651",
+            "align": "left",
+            "clip": true,
+            "pattern": "Location",
+            "type": "string",
+            "width": "5em"
+          },
+          "text": "Location",
+          "title": "Location"
+        },
+        {
+          "$$hashKey": "object:38",
+          "desc": true,
+          "hidden": false,
+          "sort": false,
+          "style": {
+            "$$hashKey": "object:649",
+            "alias": "Node",
+            "align": "left",
+            "pattern": "Node Label",
+            "type": "string",
+            "width": "12em"
+          },
+          "text": "Node Label",
+          "title": "Node"
+        },
+        {
+          "$$hashKey": "object:444",
+          "desc": true,
+          "featured": true,
+          "hidden": false,
+          "resource": "situationAlarmCount",
+          "sort": false,
+          "style": {
+            "$$hashKey": "object:692",
+            "alias": "# Alarms",
+            "align": "left",
+            "clip": true,
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 0,
+            "link": false,
+            "mappingType": 1,
+            "pattern": "Situation Alarm Count",
+            "thresholds": [],
+            "type": "number",
+            "unit": "short",
+            "width": "1em"
+          },
+          "text": "Situation Alarm Count",
+          "title": "# Alarms"
+        },
+        {
+          "$$hashKey": "object:39",
+          "hidden": false,
+          "sort": false,
+          "style": {
+            "$$hashKey": "object:647",
+            "alias": "Message",
+            "align": "left",
+            "clip": true,
+            "pattern": "Log Message",
+            "sanitize": true,
+            "type": "string",
+            "width": "30em"
+          },
+          "text": "Log Message",
+          "title": "Message"
+        },
+        {
+          "$$hashKey": "object:1768",
+          "desc": true,
+          "hidden": false,
+          "resource": "sticky.body",
+          "sort": false,
+          "style": {
+            "$$hashKey": "object:2144",
+            "alias": "Sticky",
+            "align": "auto",
+            "clip": true,
+            "colors": [
+              "rgba(245, 54, 54, 0.9)",
+              "rgba(237, 129, 40, 0.89)",
+              "rgba(50, 172, 45, 0.97)"
+            ],
+            "dateFormat": "YYYY-MM-DD HH:mm:ss",
+            "decimals": 2,
+            "mappingType": 1,
+            "pattern": "Sticky Note",
+            "preserveFormat": false,
+            "thresholds": [],
+            "type": "string",
+            "unit": "short",
+            "valueMaps": [],
+            "width": "10em"
+          },
+          "text": "Sticky Note",
+          "title": "Sticky"
+        }
+      ],
+      "datasource": {
+        "type": "opennms-helm-entity-datasource",
+        "uid": "P506178D7A6C7B590"
+      },
+      "description": "",
+      "fontSize": "100%",
+      "gridPos": {
+        "h": 9,
+        "w": 21,
+        "x": 0,
+        "y": 0
+      },
+      "id": 2,
+      "pageSize": 10,
+      "pagingPausesRefresh": false,
+      "scroll": false,
+      "severity": "column",
+      "showHeader": true,
+      "sort": {
+        "col": 1,
+        "desc": true
+      },
+      "styles": [
+        {
+          "$$hashKey": "object:642",
+          "align": "center",
+          "clip": true,
+          "displayAs": "icon",
+          "pattern": "Severity",
+          "type": "severity",
+          "width": "3em"
+        },
+        {
+          "$$hashKey": "object:643",
+          "alias": "Last Occurrence",
+          "align": "center",
+          "clip": true,
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "pattern": "/Last Event Time/",
+          "type": "date",
+          "width": "5em"
+        },
+        {
+          "$$hashKey": "object:644",
+          "align": "center",
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "pattern": "/(.*Time|Suppressed Until)/",
+          "type": "date",
+          "width": "6em"
+        },
+        {
+          "$$hashKey": "object:645",
+          "pattern": "/.*ID/",
+          "type": "string"
+        },
+        {
+          "$$hashKey": "object:646",
+          "pattern": "Description",
+          "sanitize": true,
+          "type": "string"
+        },
+        {
+          "$$hashKey": "object:647",
+          "alias": "Message",
+          "align": "left",
+          "clip": true,
+          "pattern": "Log Message",
+          "sanitize": true,
+          "type": "string",
+          "width": "30em"
+        },
+        {
+          "$$hashKey": "object:648",
+          "alias": "",
+          "align": "right",
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "decimals": 0,
+          "pattern": "Count",
+          "type": "number",
+          "unit": "short",
+          "width": "3em"
+        },
+        {
+          "$$hashKey": "object:649",
+          "alias": "Node",
+          "align": "left",
+          "pattern": "Node Label",
+          "type": "string",
+          "width": "12em"
+        },
+        {
+          "$$hashKey": "object:650",
+          "alias": "Situation",
+          "align": "center",
+          "clip": true,
+          "pattern": "Is Situation",
+          "type": "checkbox",
+          "width": "2em"
+        },
+        {
+          "$$hashKey": "object:651",
+          "align": "left",
+          "clip": true,
+          "pattern": "Location",
+          "type": "string",
+          "width": "5em"
+        },
+        {
+          "$$hashKey": "object:692",
+          "alias": "# Alarms",
+          "align": "left",
+          "clip": true,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 0,
+          "link": false,
+          "mappingType": 1,
+          "pattern": "Situation Alarm Count",
+          "thresholds": [],
+          "type": "number",
+          "unit": "short",
+          "width": "1em"
+        },
+        {
+          "$$hashKey": "object:2144",
+          "alias": "Sticky",
+          "align": "auto",
+          "clip": true,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "Sticky Note",
+          "preserveFormat": false,
+          "thresholds": [],
+          "type": "string",
+          "unit": "short",
+          "valueMaps": [],
+          "width": "10em"
+        },
+        {
+          "$$hashKey": "object:652",
+          "align": "left",
+          "pattern": "/.*/",
+          "type": "string"
+        }
+      ],
+      "targets": [
+        {
+          "datasource": {
+            "type": "opennms-helm-entity-datasource",
+            "uid": "P506178D7A6C7B590"
+          },
+          "entityType": {
+            "id": "alarm",
+            "label": "Alarms",
+            "queryFunction": "alarms"
+          },
+          "filter": {
+            "clauses": [
+              {
+                "operator": {
+                  "id": 1,
+                  "label": "AND"
+                },
+                "restriction": {
+                  "attribute": "isAcknowledged",
+                  "comparator": {
+                    "id": 1,
+                    "label": "EQ"
+                  },
+                  "value": "false"
+                }
+              },
+              {
+                "operator": {
+                  "id": 1,
+                  "label": "AND"
+                },
+                "restriction": {
+                  "clauses": [
+                    {
+                      "operator": {
+                        "id": 1,
+                        "label": "AND"
+                      },
+                      "restriction": {
+                        "attribute": "isSituation",
+                        "comparator": {
+                          "id": 1,
+                          "label": "EQ"
+                        },
+                        "value": "true"
+                      }
+                    },
+                    {
+                      "operator": {
+                        "id": 2,
+                        "label": "OR"
+                      },
+                      "restriction": {
+                        "attribute": "isInSituation",
+                        "comparator": {
+                          "id": 1,
+                          "label": "EQ"
+                        },
+                        "value": "false"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "operator": {
+                  "id": 1,
+                  "label": "AND"
+                },
+                "restriction": {
+                  "attribute": "severity",
+                  "comparator": {
+                    "id": 5,
+                    "label": "GT"
+                  },
+                  "value": "NORMAL"
+                }
+              }
+            ],
+            "limit": 0,
+            "orderBy": []
+          },
+          "limit": 0,
+          "orderBy": [],
+          "refId": "A"
+        }
+      ],
+      "theme": "helm",
+      "title": "Alarms & situations (noack)",
+      "transform": "table",
+      "type": "opennms-helm-alarm-table-panel"
+    },
+    {
+      "datasource": {
+        "type": "opennms-helm-performance-datasource",
+        "uid": "P5830C3189672E4F6"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "ms"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 21,
+        "y": 0
+      },
+      "id": 13,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.5.15",
+      "targets": [
+        {
+          "attribute": "Dispatch95",
+          "datasource": {
+            "type": "opennms-helm-performance-datasource",
+            "uid": "P5830C3189672E4F6"
+          },
+          "label": "Latency",
+          "nodeId": "selfmonitor:2",
+          "refId": "A",
+          "resourceId": "sinkProducerMetrics[Telemetry-BMP]",
+          "type": "attribute"
+        }
+      ],
+      "title": "BMP (p95)",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "opennms-helm-performance-datasource",
+        "uid": "P5830C3189672E4F6"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 21,
+        "y": 3
+      },
+      "id": 15,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.5.15",
+      "targets": [
+        {
+          "attribute": "DroolsAlarmdFacts",
+          "datasource": {
+            "type": "opennms-helm-performance-datasource",
+            "uid": "P5830C3189672E4F6"
+          },
+          "hide": true,
+          "label": "facts_decimal",
+          "nodeId": "selfmonitor:2",
+          "refId": "A",
+          "resourceId": "interfaceSnmp[opennms-jvm]",
+          "type": "attribute"
+        },
+        {
+          "datasource": {
+            "type": "opennms-helm-performance-datasource",
+            "uid": "P5830C3189672E4F6"
+          },
+          "expression": "math:ceil(facts_decimal)",
+          "hide": false,
+          "label": "facts",
+          "refId": "B",
+          "type": "expression"
+        }
+      ],
+      "title": "Alarmd Facts",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "opennms-helm-performance-datasource",
+        "uid": "P5830C3189672E4F6"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "ms"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 21,
+        "y": 6
+      },
+      "id": 16,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "area",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.5.15",
+      "targets": [
+        {
+          "attribute": "DroolsAlarmdLv95",
+          "datasource": {
+            "type": "opennms-helm-performance-datasource",
+            "uid": "P5830C3189672E4F6"
+          },
+          "label": "Liveness",
+          "nodeId": "selfmonitor:2",
+          "refId": "A",
+          "resourceId": "interfaceSnmp[opennms-jvm]",
+          "type": "attribute"
+        }
+      ],
+      "title": "Alarmd Liveness (p95)",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "postgres",
+        "uid": "PA942B37CCFAF5A81"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "displayMode": "auto",
+            "inspect": false
+          },
+          "mappings": [
+            {
+              "options": {
+                "DOWN": {
+                  "color": "red",
+                  "index": 1
+                },
+                "UP": {
+                  "color": "green",
+                  "index": 0
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "event"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 133
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "PeerASN"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 129
+              },
+              {
+                "id": "links",
+                "value": [
+                  {
+                    "targetBlank": true,
+                    "title": "ASN View",
+                    "url": "/d/CRZaPcFik/asn-view?orgId=1&var-asn_num=${__data.fields.PeerASN}"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "communities"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 213
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "LastModified"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "dateTimeFromNow"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "State"
+            },
+            "properties": [
+              {
+                "id": "custom.displayMode",
+                "value": "color-background-solid"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 12,
+        "w": 12,
+        "x": 0,
+        "y": 9
+      },
+      "id": 9,
+      "options": {
+        "footer": {
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": [
+          {
+            "desc": true,
+            "displayName": "LastModified"
+          }
+        ]
+      },
+      "pluginVersion": "8.5.15",
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "PA942B37CCFAF5A81"
+          },
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": " SELECT\n    max(RouterName) as \"RouterName\",\n    max(PeerName) as \"PeerName\",\n    max(PeerIP) as \"PeerIP\",\n    max(PeerASN) as \"PeerASN\",\n    max(peer_state) as \"State\",\n    max(LastModified) as \"LastModified\"\nFROM bmp_v_peers p\n  LEFT JOIN bmp_stats_peer_rib s ON (p.peer_hash_id = s.peer_hash_id\n          AND s.interval_time >= now() - interval '20 minutes')\nGROUP BY p.peer_hash_id;",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "longitude"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "assets",
+          "timeColumn": "lastmodifieddate",
+          "timeColumnType": "timestamp",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "title": "Peer Status",
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "opennms-helm-entity-datasource",
+        "uid": "P506178D7A6C7B590"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "displayMode": "auto",
+            "inspect": false
+          },
+          "mappings": [
+            {
+              "options": {
+                "CRITICAL": {
+                  "color": "dark-red",
+                  "index": 3
+                },
+                "MAJOR": {
+                  "color": "dark-orange",
+                  "index": 2
+                },
+                "MINOR": {
+                  "color": "orange",
+                  "index": 1
+                },
+                "WARNING": {
+                  "color": "yellow",
+                  "index": 0
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Severity"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 139
+              },
+              {
+                "id": "custom.displayMode",
+                "value": "color-background-solid"
+              },
+              {
+                "id": "links",
+                "value": [
+                  {
+                    "targetBlank": true,
+                    "title": "View in ALEC UI",
+                    "url": "http://localhost:8980/opennms/ui/#/plugins/alecUiExtension/ui-ext/alecUiExtension.es.js/situations/${__data.fields.ID}"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Log Message"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 615
+              },
+              {
+                "id": "links",
+                "value": [
+                  {
+                    "targetBlank": true,
+                    "title": "View in topology",
+                    "url": "http://localhost:8980/opennms/topology?provider=ALEC&szl=1&focus-vertices=situation-${__data.fields[\"uei.opennms.org/alarms/situation\"]}"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "uei.opennms.org/alarms/situation"
+            },
+            "properties": [
+              {
+                "id": "custom.hidden",
+                "value": true
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Reduction Key"
+            },
+            "properties": [
+              {
+                "id": "custom.hidden",
+                "value": true
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "ID"
+            },
+            "properties": [
+              {
+                "id": "custom.hidden",
+                "value": true
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 12,
+        "x": 12,
+        "y": 9
+      },
+      "id": 11,
+      "options": {
+        "footer": {
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "8.5.15",
+      "targets": [
+        {
+          "datasource": {
+            "type": "opennms-helm-entity-datasource",
+            "uid": "P506178D7A6C7B590"
+          },
+          "entityType": {
+            "id": "alarm",
+            "label": "Alarms",
+            "queryFunction": "alarms"
+          },
+          "filter": {
+            "clauses": [
+              {
+                "operator": {
+                  "id": 1,
+                  "label": "AND"
+                },
+                "restriction": {
+                  "attribute": "isSituation",
+                  "comparator": {
+                    "id": 1,
+                    "label": "EQ"
+                  },
+                  "value": "true"
+                }
+              },
+              {
+                "operator": {
+                  "id": 1,
+                  "label": "AND"
+                },
+                "restriction": {
+                  "attribute": "severity",
+                  "comparator": {
+                    "id": 7,
+                    "label": "GE"
+                  },
+                  "value": "WARNING"
+                }
+              }
+            ],
+            "limit": 0,
+            "orderBy": []
+          },
+          "limit": 0,
+          "orderBy": [],
+          "refId": "A"
+        }
+      ],
+      "title": "Situations",
+      "transformations": [
+        {
+          "id": "filterFieldsByName",
+          "options": {
+            "include": {
+              "pattern": "/^Severity|^ID|Log Message|Reduction Key/"
+            }
+          }
+        },
+        {
+          "id": "extractFields",
+          "options": {
+            "format": "kvp",
+            "replace": false,
+            "source": "Reduction Key"
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "postgres",
+        "uid": "PA942B37CCFAF5A81"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "displayMode": "auto",
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "lastmodified"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 209
+              },
+              {
+                "id": "unit",
+                "value": "dateTimeFromNow"
+              },
+              {
+                "id": "displayName",
+                "value": "When"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "event"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 111
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "routername"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 96
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "peername"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 107
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "prefix"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 114
+              },
+              {
+                "id": "links",
+                "value": [
+                  {
+                    "targetBlank": true,
+                    "title": "Looking Glass",
+                    "url": "http://localhost:3000/d/u8FgTcFik/looking-glass?orgId=1&var-prefix=${__data.fields.prefix}"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "origin_as"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 129
+              },
+              {
+                "id": "links",
+                "value": [
+                  {
+                    "targetBlank": true,
+                    "title": "ASN View",
+                    "url": "/d/CRZaPcFik/asn-view?orgId=1&var-asn_num=${__data.fields.origin_as}"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "as_path"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 216
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "When"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 77
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 13
+      },
+      "id": 6,
+      "options": {
+        "footer": {
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "8.5.15",
+      "targets": [
+        {
+          "datasource": {
+            "type": "postgres",
+            "uid": "PA942B37CCFAF5A81"
+          },
+          "format": "table",
+          "group": [],
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": " select event,routername,peername,prefix,origin_as,as_path,lastmodified\n    from bmp_v_ip_routes_history \n    where  $__timeFilter(lastmodified)\n    order by lastmodified desc,id desc\n    limit 1000;",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "longitude"
+                ],
+                "type": "column"
+              }
+            ]
+          ],
+          "table": "assets",
+          "timeColumn": "lastmodifieddate",
+          "timeColumnType": "timestamp",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "title": "Prefix History",
+      "type": "table"
+    }
+  ],
+  "refresh": "5s",
+  "schemaVersion": 36,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-1d",
+    "to": "now+1h"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "BGP & Alarms",
+  "uid": "2aBC1_dVz",
+  "version": 1,
+  "weekStart": ""
+}

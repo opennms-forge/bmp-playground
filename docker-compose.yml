@@ -85,7 +85,7 @@ services:
       - OPENNMS_DBNAME=opennms
       - OPENNMS_DBUSER=opennms
       - OPENNMS_DBPASS=opennms
-      - JAVA_OPTS=-Xmx4096m -XX:MaxMetaspaceSize=2048m
+      - JAVA_OPTS=-Xmx4096m -XX:MaxMetaspaceSize=2048m -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005
     networks:
       net-mgmt:
         ipv4_address: 192.168.10.4
@@ -95,6 +95,7 @@ services:
       - ./horizon-overlay:/opt/opennms-overlay
     command: ["-s"]
     ports:
+      - "5005:5005"
       - "8980:8980"
       - "8101:8101"
       - "61616:61616/tcp"
@@ -201,6 +202,8 @@ services:
     networks:
       net-location-r01:
         ipv4_address: 192.168.250.5
+      net-r01:
+        ipv4_address: 192.168.255.6
       net-location-peer:
         ipv4_address: 10.0.250.5
       net-location-mgmt:
