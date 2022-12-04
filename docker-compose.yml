@@ -56,6 +56,7 @@ volumes:
   data-postgres: {}
   data-opennms: {}
   data-grafana: {}
+  data-es01: {}
 
 services:
   database:
@@ -100,6 +101,29 @@ services:
       - "8101:8101"
       - "61616:61616/tcp"
       - "11019:11019/tcp"
+
+  es01:
+    image: docker.elastic.co/elasticsearch/elasticsearch:${ELASTICSEARCH_VERSION:-7.6.2}
+    container_name: es01
+    hostname: es01
+    environment:
+     TZ: ${TIMEZONE:-America/New_York}
+     discovery.type: single-node
+     node.name: es-node-01
+     search.max_buckets: 250000
+    ports:
+      - "9200:9200/tcp"
+      - "9300:9300/tcp"
+    networks:
+      net-mgmt:
+        ipv4_address: 192.168.10.110
+    volumes:
+      - data-es01:/usr/share/elasticsearch/data
+    healthcheck:
+      test: curl http://localhost:9200 >/dev/null; if [[ $$? == 52 ]]; then echo 0; else echo 1; fi
+      interval: 30s
+      timeout: 10s
+      retries: 5
 
   grafana:
     image: docker.io/grafana/grafana:8.5.15
