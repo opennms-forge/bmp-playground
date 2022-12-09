@@ -143,7 +143,7 @@ services:
       - "8201:8201/tcp"
 
   r01:
-    image: quay.io/labmonkeys/gobgp:3.8.0.b1070
+    image: quay.io/labmonkeys/gobgp:3.9.0.b1146
     container_name: r01
     environment:
       - TZ=Europe/Berlin
@@ -159,7 +159,7 @@ services:
     command: ["-f", "/gobgpd.conf"]
 
   r02:
-    image: quay.io/labmonkeys/gobgp:3.8.0.b1070
+    image: quay.io/labmonkeys/gobgp:3.9.0.b1146
     container_name: r02
     environment:
       - TZ=Europe/Berlin
@@ -175,7 +175,7 @@ services:
     command: ["-f", "/gobgpd.conf"]
 
   r03:
-    image: quay.io/labmonkeys/gobgp:3.8.0.b1070
+    image: quay.io/labmonkeys/gobgp:3.9.0.b1146
     container_name: r03
     environment:
       - TZ=Europe/Berlin
@@ -192,7 +192,7 @@ services:
 
 ### Router in remote location
   location-r01:
-    image: quay.io/labmonkeys/gobgp:3.8.0.b1070
+    image: quay.io/labmonkeys/gobgp:3.9.0.b1146
     container_name: location-r01
     environment:
       - TZ=Europe/Berlin
@@ -208,7 +208,7 @@ services:
     command: ["-f", "/gobgpd.conf"]
 
   location-r02:
-    image: quay.io/labmonkeys/gobgp:3.8.0.b1070
+    image: quay.io/labmonkeys/gobgp:3.9.0.b1146
     container_name: location-r02
     environment:
       - TZ=Europe/Berlin
@@ -224,7 +224,7 @@ services:
     command: ["-f", "/gobgpd.conf"]
 
   location-r03:
-    image: quay.io/labmonkeys/gobgp:3.8.0.b1070
+    image: quay.io/labmonkeys/gobgp:3.9.0.b1146
     container_name: location-r03
     environment:
       - TZ=Europe/Berlin
