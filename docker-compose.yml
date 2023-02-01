@@ -60,7 +60,6 @@ volumes:
 services:
   database:
     image: timescale/timescaledb:2.8.1-pg12
-    container_name: database
     environment:
       - TZ=Europe/Berlin
       - POSTGRES_HOST=database
@@ -74,8 +73,7 @@ services:
         ipv4_address: 192.168.10.3
 
   horizon:
-    image: opennms/horizon:31.0.1
-    container_name: horizon
+    image: opennms/horizon:31.0.3
     environment:
       - TZ=Europe/Berlin
       - POSTGRES_HOST=database
@@ -101,8 +99,7 @@ services:
       - "11019:11019/tcp"
 
   grafana:
-    image: docker.io/grafana/grafana:8.5.15
-    container_name: grafana
+    image: docker.io/grafana/grafana:8.5.20
     hostname: grafana
     depends_on:
       - horizon
@@ -124,8 +121,7 @@ services:
       - "3000:3000/tcp"
 
   minion:
-    image: opennms/minion:31.0.1
-    container_name: minion
+    image: opennms/minion:31.0.3
     environment:
       - TZ=Europe/Berlin
       - MINION_ID=minion-01
@@ -143,8 +139,7 @@ services:
       - "8201:8201/tcp"
 
   r01:
-    image: quay.io/labmonkeys/gobgp:3.9.0.b1146
-    container_name: r01
+    image: quay.io/labmonkeys/gobgp:3.11.0.b1407
     environment:
       - TZ=Europe/Berlin
     volumes: 
@@ -159,8 +154,7 @@ services:
     command: ["-f", "/gobgpd.conf"]
 
   r02:
-    image: quay.io/labmonkeys/gobgp:3.9.0.b1146
-    container_name: r02
+    image: quay.io/labmonkeys/gobgp:3.11.0.b1407
     environment:
       - TZ=Europe/Berlin
     volumes: 
@@ -175,8 +169,7 @@ services:
     command: ["-f", "/gobgpd.conf"]
 
   r03:
-    image: quay.io/labmonkeys/gobgp:3.9.0.b1146
-    container_name: r03
+    image: quay.io/labmonkeys/gobgp:3.11.0.b1407
     environment:
       - TZ=Europe/Berlin
     volumes: 
@@ -192,8 +185,7 @@ services:
 
 ### Router in remote location
   location-r01:
-    image: quay.io/labmonkeys/gobgp:3.9.0.b1146
-    container_name: location-r01
+    image: quay.io/labmonkeys/gobgp:3.11.0.b1407
     environment:
       - TZ=Europe/Berlin
     volumes: 
@@ -208,8 +200,7 @@ services:
     command: ["-f", "/gobgpd.conf"]
 
   location-r02:
-    image: quay.io/labmonkeys/gobgp:3.9.0.b1146
-    container_name: location-r02
+    image: quay.io/labmonkeys/gobgp:3.11.0.b1407
     environment:
       - TZ=Europe/Berlin
     volumes: 
@@ -224,8 +215,7 @@ services:
     command: ["-f", "/gobgpd.conf"]
 
   location-r03:
-    image: quay.io/labmonkeys/gobgp:3.9.0.b1146
-    container_name: location-r03
+    image: quay.io/labmonkeys/gobgp:3.11.0.b1407
     environment:
       - TZ=Europe/Berlin
     volumes: 
