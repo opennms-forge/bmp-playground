@@ -24,6 +24,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
+  "id": 17,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -134,13 +135,25 @@
             },
             "label": "50",
             "node": {
-              "snmpInterfaces": [],
+              "assets": {
+                "building": "selfmonitor",
+                "category": "Unspecified",
+                "id": 7,
+                "lastModifiedBy": "",
+                "lastModifiedDate": 1687865908645
+              },
+              "categories": [],
+              "createTime": "2023-06-27T11:38:21.254Z",
+              "foreignId": "2",
+              "foreignSource": "selfmonitor",
+              "id": 2,
               "ipInterfaces": [
                 {
-                  "services": [],
-                  "id": 6,
                   "hostname": "localhost",
+                  "id": 6,
                   "ipAddress": {
+                    "address": "127.0.0.1",
+                    "addressMinusSuffix": "127.0.0.1",
                     "groups": 4,
                     "parsedAddress": [
                       "127",
@@ -151,9 +164,7 @@
                     "parsedSubnet": "",
                     "subnet": "/32",
                     "subnetMask": 32,
-                    "v4": true,
-                    "address": "127.0.0.1",
-                    "addressMinusSuffix": "127.0.0.1"
+                    "v4": true
                   },
                   "isDown": false,
                   "isManaged": {
@@ -162,34 +173,24 @@
                   },
                   "lastCapsdPoll": "2023-06-27T11:38:21.269Z",
                   "monitoredServiceCount": 2,
+                  "node": {
+                    "id": 2
+                  },
+                  "services": [],
                   "snmpPrimary": {
                     "id": "P",
                     "label": "PRIMARY"
-                  },
-                  "node": {
-                    "id": 2
                   }
                 }
               ],
-              "categories": [],
-              "assets": {
-                "category": "Unspecified",
-                "id": 7,
-                "building": "selfmonitor",
-                "lastModifiedBy": "",
-                "lastModifiedDate": 1687865908645
-              },
-              "id": 2,
               "label": "localhost",
-              "location": "Default",
-              "foreignSource": "selfmonitor",
-              "foreignId": "2",
               "labelSource": {
                 "id": "U",
                 "label": "USER"
               },
-              "createTime": "2023-06-27T11:38:21.254Z",
               "lastCapsdPoll": "2023-06-27T11:38:21.269Z",
+              "location": "Default",
+              "snmpInterfaces": [],
               "type": {
                 "id": "A",
                 "label": "ACTIVE"
@@ -308,13 +309,25 @@
             },
             "label": "75",
             "node": {
-              "snmpInterfaces": [],
+              "assets": {
+                "building": "selfmonitor",
+                "category": "Unspecified",
+                "id": 7,
+                "lastModifiedBy": "",
+                "lastModifiedDate": 1687865908645
+              },
+              "categories": [],
+              "createTime": "2023-06-27T11:38:21.254Z",
+              "foreignId": "2",
+              "foreignSource": "selfmonitor",
+              "id": 2,
               "ipInterfaces": [
                 {
-                  "services": [],
-                  "id": 6,
                   "hostname": "localhost",
+                  "id": 6,
                   "ipAddress": {
+                    "address": "127.0.0.1",
+                    "addressMinusSuffix": "127.0.0.1",
                     "groups": 4,
                     "parsedAddress": [
                       "127",
@@ -325,9 +338,7 @@
                     "parsedSubnet": "",
                     "subnet": "/32",
                     "subnetMask": 32,
-                    "v4": true,
-                    "address": "127.0.0.1",
-                    "addressMinusSuffix": "127.0.0.1"
+                    "v4": true
                   },
                   "isDown": false,
                   "isManaged": {
@@ -336,34 +347,24 @@
                   },
                   "lastCapsdPoll": "2023-06-27T11:38:21.269Z",
                   "monitoredServiceCount": 2,
+                  "node": {
+                    "id": 2
+                  },
+                  "services": [],
                   "snmpPrimary": {
                     "id": "P",
                     "label": "PRIMARY"
-                  },
-                  "node": {
-                    "id": 2
                   }
                 }
               ],
-              "categories": [],
-              "assets": {
-                "category": "Unspecified",
-                "id": 7,
-                "building": "selfmonitor",
-                "lastModifiedBy": "",
-                "lastModifiedDate": 1687865908645
-              },
-              "id": 2,
               "label": "localhost",
-              "location": "Default",
-              "foreignSource": "selfmonitor",
-              "foreignId": "2",
               "labelSource": {
                 "id": "U",
                 "label": "USER"
               },
-              "createTime": "2023-06-27T11:38:21.254Z",
               "lastCapsdPoll": "2023-06-27T11:38:21.269Z",
+              "location": "Default",
+              "snmpInterfaces": [],
               "type": {
                 "id": "A",
                 "label": "ACTIVE"
@@ -483,13 +484,25 @@
             },
             "label": "95",
             "node": {
-              "snmpInterfaces": [],
+              "assets": {
+                "building": "selfmonitor",
+                "category": "Unspecified",
+                "id": 7,
+                "lastModifiedBy": "",
+                "lastModifiedDate": 1687865908645
+              },
+              "categories": [],
+              "createTime": "2023-06-27T11:38:21.254Z",
+              "foreignId": "2",
+              "foreignSource": "selfmonitor",
+              "id": 2,
               "ipInterfaces": [
                 {
-                  "services": [],
-                  "id": 6,
                   "hostname": "localhost",
+                  "id": 6,
                   "ipAddress": {
+                    "address": "127.0.0.1",
+                    "addressMinusSuffix": "127.0.0.1",
                     "groups": 4,
                     "parsedAddress": [
                       "127",
@@ -500,9 +513,7 @@
                     "parsedSubnet": "",
                     "subnet": "/32",
                     "subnetMask": 32,
-                    "v4": true,
-                    "address": "127.0.0.1",
-                    "addressMinusSuffix": "127.0.0.1"
+                    "v4": true
                   },
                   "isDown": false,
                   "isManaged": {
@@ -511,34 +522,24 @@
                   },
                   "lastCapsdPoll": "2023-06-27T11:38:21.269Z",
                   "monitoredServiceCount": 2,
+                  "node": {
+                    "id": 2
+                  },
+                  "services": [],
                   "snmpPrimary": {
                     "id": "P",
                     "label": "PRIMARY"
-                  },
-                  "node": {
-                    "id": 2
                   }
                 }
               ],
-              "categories": [],
-              "assets": {
-                "category": "Unspecified",
-                "id": 7,
-                "building": "selfmonitor",
-                "lastModifiedBy": "",
-                "lastModifiedDate": 1687865908645
-              },
-              "id": 2,
               "label": "localhost",
-              "location": "Default",
-              "foreignSource": "selfmonitor",
-              "foreignId": "2",
               "labelSource": {
                 "id": "U",
                 "label": "USER"
               },
-              "createTime": "2023-06-27T11:38:21.254Z",
               "lastCapsdPoll": "2023-06-27T11:38:21.269Z",
+              "location": "Default",
+              "snmpInterfaces": [],
               "type": {
                 "id": "A",
                 "label": "ACTIVE"
@@ -658,13 +659,25 @@
             },
             "label": "98",
             "node": {
-              "snmpInterfaces": [],
+              "assets": {
+                "building": "selfmonitor",
+                "category": "Unspecified",
+                "id": 7,
+                "lastModifiedBy": "",
+                "lastModifiedDate": 1687865908645
+              },
+              "categories": [],
+              "createTime": "2023-06-27T11:38:21.254Z",
+              "foreignId": "2",
+              "foreignSource": "selfmonitor",
+              "id": 2,
               "ipInterfaces": [
                 {
-                  "services": [],
-                  "id": 6,
                   "hostname": "localhost",
+                  "id": 6,
                   "ipAddress": {
+                    "address": "127.0.0.1",
+                    "addressMinusSuffix": "127.0.0.1",
                     "groups": 4,
                     "parsedAddress": [
                       "127",
@@ -675,9 +688,7 @@
                     "parsedSubnet": "",
                     "subnet": "/32",
                     "subnetMask": 32,
-                    "v4": true,
-                    "address": "127.0.0.1",
-                    "addressMinusSuffix": "127.0.0.1"
+                    "v4": true
                   },
                   "isDown": false,
                   "isManaged": {
@@ -686,34 +697,24 @@
                   },
                   "lastCapsdPoll": "2023-06-27T11:38:21.269Z",
                   "monitoredServiceCount": 2,
+                  "node": {
+                    "id": 2
+                  },
+                  "services": [],
                   "snmpPrimary": {
                     "id": "P",
                     "label": "PRIMARY"
-                  },
-                  "node": {
-                    "id": 2
                   }
                 }
               ],
-              "categories": [],
-              "assets": {
-                "category": "Unspecified",
-                "id": 7,
-                "building": "selfmonitor",
-                "lastModifiedBy": "",
-                "lastModifiedDate": 1687865908645
-              },
-              "id": 2,
               "label": "localhost",
-              "location": "Default",
-              "foreignSource": "selfmonitor",
-              "foreignId": "2",
               "labelSource": {
                 "id": "U",
                 "label": "USER"
               },
-              "createTime": "2023-06-27T11:38:21.254Z",
               "lastCapsdPoll": "2023-06-27T11:38:21.269Z",
+              "location": "Default",
+              "snmpInterfaces": [],
               "type": {
                 "id": "A",
                 "label": "ACTIVE"
@@ -833,13 +834,25 @@
             },
             "label": "99",
             "node": {
-              "snmpInterfaces": [],
+              "assets": {
+                "building": "selfmonitor",
+                "category": "Unspecified",
+                "id": 7,
+                "lastModifiedBy": "",
+                "lastModifiedDate": 1687865908645
+              },
+              "categories": [],
+              "createTime": "2023-06-27T11:38:21.254Z",
+              "foreignId": "2",
+              "foreignSource": "selfmonitor",
+              "id": 2,
               "ipInterfaces": [
                 {
-                  "services": [],
-                  "id": 6,
                   "hostname": "localhost",
+                  "id": 6,
                   "ipAddress": {
+                    "address": "127.0.0.1",
+                    "addressMinusSuffix": "127.0.0.1",
                     "groups": 4,
                     "parsedAddress": [
                       "127",
@@ -850,9 +863,7 @@
                     "parsedSubnet": "",
                     "subnet": "/32",
                     "subnetMask": 32,
-                    "v4": true,
-                    "address": "127.0.0.1",
-                    "addressMinusSuffix": "127.0.0.1"
+                    "v4": true
                   },
                   "isDown": false,
                   "isManaged": {
@@ -861,34 +872,24 @@
                   },
                   "lastCapsdPoll": "2023-06-27T11:38:21.269Z",
                   "monitoredServiceCount": 2,
+                  "node": {
+                    "id": 2
+                  },
+                  "services": [],
                   "snmpPrimary": {
                     "id": "P",
                     "label": "PRIMARY"
-                  },
-                  "node": {
-                    "id": 2
                   }
                 }
               ],
-              "categories": [],
-              "assets": {
-                "category": "Unspecified",
-                "id": 7,
-                "building": "selfmonitor",
-                "lastModifiedBy": "",
-                "lastModifiedDate": 1687865908645
-              },
-              "id": 2,
               "label": "localhost",
-              "location": "Default",
-              "foreignSource": "selfmonitor",
-              "foreignId": "2",
               "labelSource": {
                 "id": "U",
                 "label": "USER"
               },
-              "createTime": "2023-06-27T11:38:21.254Z",
               "lastCapsdPoll": "2023-06-27T11:38:21.269Z",
+              "location": "Default",
+              "snmpInterfaces": [],
               "type": {
                 "id": "A",
                 "label": "ACTIVE"
@@ -1008,13 +1009,25 @@
             },
             "label": "99.9",
             "node": {
-              "snmpInterfaces": [],
+              "assets": {
+                "building": "selfmonitor",
+                "category": "Unspecified",
+                "id": 7,
+                "lastModifiedBy": "",
+                "lastModifiedDate": 1687865908645
+              },
+              "categories": [],
+              "createTime": "2023-06-27T11:38:21.254Z",
+              "foreignId": "2",
+              "foreignSource": "selfmonitor",
+              "id": 2,
               "ipInterfaces": [
                 {
-                  "services": [],
-                  "id": 6,
                   "hostname": "localhost",
+                  "id": 6,
                   "ipAddress": {
+                    "address": "127.0.0.1",
+                    "addressMinusSuffix": "127.0.0.1",
                     "groups": 4,
                     "parsedAddress": [
                       "127",
@@ -1025,9 +1038,7 @@
                     "parsedSubnet": "",
                     "subnet": "/32",
                     "subnetMask": 32,
-                    "v4": true,
-                    "address": "127.0.0.1",
-                    "addressMinusSuffix": "127.0.0.1"
+                    "v4": true
                   },
                   "isDown": false,
                   "isManaged": {
@@ -1036,34 +1047,24 @@
                   },
                   "lastCapsdPoll": "2023-06-27T11:38:21.269Z",
                   "monitoredServiceCount": 2,
+                  "node": {
+                    "id": 2
+                  },
+                  "services": [],
                   "snmpPrimary": {
                     "id": "P",
                     "label": "PRIMARY"
-                  },
-                  "node": {
-                    "id": 2
                   }
                 }
               ],
-              "categories": [],
-              "assets": {
-                "category": "Unspecified",
-                "id": 7,
-                "building": "selfmonitor",
-                "lastModifiedBy": "",
-                "lastModifiedDate": 1687865908645
-              },
-              "id": 2,
               "label": "localhost",
-              "location": "Default",
-              "foreignSource": "selfmonitor",
-              "foreignId": "2",
               "labelSource": {
                 "id": "U",
                 "label": "USER"
               },
-              "createTime": "2023-06-27T11:38:21.254Z",
               "lastCapsdPoll": "2023-06-27T11:38:21.269Z",
+              "location": "Default",
+              "snmpInterfaces": [],
               "type": {
                 "id": "A",
                 "label": "ACTIVE"
@@ -1220,7 +1221,7 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 9,
+        "h": 16,
         "w": 12,
         "x": 12,
         "y": 0
@@ -1263,13 +1264,25 @@
             },
             "label": "Messages",
             "node": {
-              "snmpInterfaces": [],
+              "assets": {
+                "building": "selfmonitor",
+                "category": "Unspecified",
+                "id": 7,
+                "lastModifiedBy": "",
+                "lastModifiedDate": 1687865908645
+              },
+              "categories": [],
+              "createTime": "2023-06-27T11:38:21.254Z",
+              "foreignId": "2",
+              "foreignSource": "selfmonitor",
+              "id": 2,
               "ipInterfaces": [
                 {
-                  "services": [],
-                  "id": 6,
                   "hostname": "localhost",
+                  "id": 6,
                   "ipAddress": {
+                    "address": "127.0.0.1",
+                    "addressMinusSuffix": "127.0.0.1",
                     "groups": 4,
                     "parsedAddress": [
                       "127",
@@ -1280,9 +1293,7 @@
                     "parsedSubnet": "",
                     "subnet": "/32",
                     "subnetMask": 32,
-                    "v4": true,
-                    "address": "127.0.0.1",
-                    "addressMinusSuffix": "127.0.0.1"
+                    "v4": true
                   },
                   "isDown": false,
                   "isManaged": {
@@ -1291,34 +1302,24 @@
                   },
                   "lastCapsdPoll": "2023-06-27T11:38:21.269Z",
                   "monitoredServiceCount": 2,
+                  "node": {
+                    "id": 2
+                  },
+                  "services": [],
                   "snmpPrimary": {
                     "id": "P",
                     "label": "PRIMARY"
-                  },
-                  "node": {
-                    "id": 2
                   }
                 }
               ],
-              "categories": [],
-              "assets": {
-                "category": "Unspecified",
-                "id": 7,
-                "building": "selfmonitor",
-                "lastModifiedBy": "",
-                "lastModifiedDate": 1687865908645
-              },
-              "id": 2,
               "label": "localhost",
-              "location": "Default",
-              "foreignSource": "selfmonitor",
-              "foreignId": "2",
               "labelSource": {
                 "id": "U",
                 "label": "USER"
               },
-              "createTime": "2023-06-27T11:38:21.254Z",
               "lastCapsdPoll": "2023-06-27T11:38:21.269Z",
+              "location": "Default",
+              "snmpInterfaces": [],
               "type": {
                 "id": "A",
                 "label": "ACTIVE"
@@ -1433,6 +1434,6 @@
   "timezone": "",
   "title": "BMP Debugging",
   "uid": "KLWViQdVz",
-  "version": 2,
+  "version": 1,
   "weekStart": ""
 }
