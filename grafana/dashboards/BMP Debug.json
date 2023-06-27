@@ -30,7 +30,7 @@
   "panels": [
     {
       "datasource": {
-        "type": "opennms-helm-performance-datasource",
+        "type": "opennms-performance-datasource",
         "uid": "HTYjzQO4k"
       },
       "fieldConfig": {
@@ -105,7 +105,7 @@
         {
           "attribute": "DispatchCounter",
           "datasource": {
-            "type": "opennms-helm-performance-datasource",
+            "type": "opennms-performance-datasource",
             "uid": "HTYjzQO4k"
           },
           "label": "Messages",
@@ -120,7 +120,7 @@
     },
     {
       "datasource": {
-        "type": "opennms-helm-performance-datasource",
+        "type": "opennms-performance-datasource",
         "uid": "HTYjzQO4k"
       },
       "fieldConfig": {
@@ -195,7 +195,7 @@
         {
           "attribute": "QueueSize",
           "datasource": {
-            "type": "opennms-helm-performance-datasource",
+            "type": "opennms-performance-datasource",
             "uid": "HTYjzQO4k"
           },
           "label": "Messages",
