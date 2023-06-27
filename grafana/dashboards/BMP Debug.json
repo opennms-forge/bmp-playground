@@ -24,14 +24,13 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 4,
   "links": [],
   "liveNow": false,
   "panels": [
     {
       "datasource": {
         "type": "opennms-performance-datasource",
-        "uid": "HTYjzQO4k"
+        "uid": "PF64BB6D6ECC8F3F8"
       },
       "fieldConfig": {
         "defaults": {
@@ -39,7 +38,9 @@
             "mode": "palette-classic"
           },
           "custom": {
-            "axisLabel": "",
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "percentile",
             "axisPlacement": "auto",
             "barAlignment": 0,
             "drawStyle": "line",
@@ -84,17 +85,23 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 9,
-        "w": 11,
+        "h": 16,
+        "w": 12,
         "x": 0,
         "y": 0
       },
       "id": 2,
       "options": {
         "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom"
+          "calcs": [
+            "last",
+            "min",
+            "max",
+            "mean"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
         },
         "tooltip": {
           "mode": "single",
@@ -103,14 +110,1051 @@
       },
       "targets": [
         {
-          "attribute": "DispatchCounter",
+          "attribute": {
+            "0": "D",
+            "1": "i",
+            "2": "s",
+            "3": "p",
+            "4": "a",
+            "5": "t",
+            "6": "c",
+            "7": "h",
+            "8": "C",
+            "9": "o",
+            "10": "u",
+            "11": "n",
+            "12": "t",
+            "13": "e",
+            "14": "r",
+            "attribute": {
+              "label": "Dispatch50",
+              "name": "Dispatch50",
+              "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+              "rrdFile": "Dispatch50.rrd"
+            },
+            "label": "50",
+            "node": {
+              "snmpInterfaces": [],
+              "ipInterfaces": [
+                {
+                  "services": [],
+                  "id": 6,
+                  "hostname": "localhost",
+                  "ipAddress": {
+                    "groups": 4,
+                    "parsedAddress": [
+                      "127",
+                      "0",
+                      "0",
+                      "1"
+                    ],
+                    "parsedSubnet": "",
+                    "subnet": "/32",
+                    "subnetMask": 32,
+                    "v4": true,
+                    "address": "127.0.0.1",
+                    "addressMinusSuffix": "127.0.0.1"
+                  },
+                  "isDown": false,
+                  "isManaged": {
+                    "id": "M",
+                    "label": "MANAGED"
+                  },
+                  "lastCapsdPoll": "2023-06-27T11:38:21.269Z",
+                  "monitoredServiceCount": 2,
+                  "snmpPrimary": {
+                    "id": "P",
+                    "label": "PRIMARY"
+                  },
+                  "node": {
+                    "id": 2
+                  }
+                }
+              ],
+              "categories": [],
+              "assets": {
+                "category": "Unspecified",
+                "id": 7,
+                "building": "selfmonitor",
+                "lastModifiedBy": "",
+                "lastModifiedDate": 1687865908645
+              },
+              "id": 2,
+              "label": "localhost",
+              "location": "Default",
+              "foreignSource": "selfmonitor",
+              "foreignId": "2",
+              "labelSource": {
+                "id": "U",
+                "label": "USER"
+              },
+              "createTime": "2023-06-27T11:38:21.254Z",
+              "lastCapsdPoll": "2023-06-27T11:38:21.269Z",
+              "type": {
+                "id": "A",
+                "label": "ACTIVE"
+              }
+            },
+            "resource": {
+              "children": {
+                "offset": 0,
+                "resource": []
+              },
+              "externalValueAttributes": {},
+              "id": "sinkProducerMetrics[Telemetry-BMP]",
+              "label": "Telemetry-BMP",
+              "name": "Telemetry-BMP",
+              "parentId": "node[selfmonitor:2]",
+              "rrdGraphAttributes": {
+                "Dispatch50": {
+                  "name": "Dispatch50",
+                  "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+                  "rrdFile": "Dispatch50.rrd"
+                },
+                "Dispatch75": {
+                  "name": "Dispatch75",
+                  "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+                  "rrdFile": "Dispatch75.rrd"
+                },
+                "Dispatch95": {
+                  "name": "Dispatch95",
+                  "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+                  "rrdFile": "Dispatch95.rrd"
+                },
+                "Dispatch98": {
+                  "name": "Dispatch98",
+                  "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+                  "rrdFile": "Dispatch98.rrd"
+                },
+                "Dispatch99": {
+                  "name": "Dispatch99",
+                  "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+                  "rrdFile": "Dispatch99.rrd"
+                },
+                "Dispatch999": {
+                  "name": "Dispatch999",
+                  "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+                  "rrdFile": "Dispatch999.rrd"
+                },
+                "DispatchCounter": {
+                  "name": "DispatchCounter",
+                  "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+                  "rrdFile": "DispatchCounter.rrd"
+                },
+                "DispatchRate1m": {
+                  "name": "DispatchRate1m",
+                  "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+                  "rrdFile": "DispatchRate1m.rrd"
+                },
+                "DispatchRate5m": {
+                  "name": "DispatchRate5m",
+                  "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+                  "rrdFile": "DispatchRate5m.rrd"
+                },
+                "DroppedCounter": {
+                  "name": "DroppedCounter",
+                  "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+                  "rrdFile": "DroppedCounter.rrd"
+                },
+                "QueueSize": {
+                  "name": "QueueSize",
+                  "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+                  "rrdFile": "QueueSize.rrd"
+                }
+              },
+              "stringPropertyAttributes": {
+                "domain": "org.opennms.core.ipc.sink.producer",
+                "name": "Telemetry-BMP.dropped"
+              },
+              "typeLabel": "Sink Producer Metrics"
+            }
+          },
           "datasource": {
             "type": "opennms-performance-datasource",
-            "uid": "HTYjzQO4k"
+            "uid": "PF64BB6D6ECC8F3F8"
           },
           "label": "Messages",
           "nodeId": "Minions:minion-01",
+          "performanceType": {
+            "label": "Attribute",
+            "value": 1
+          },
           "refId": "A",
+          "resourceId": "sinkProducerMetrics[Telemetry-BMP]",
+          "type": "attribute"
+        },
+        {
+          "attribute": {
+            "0": "D",
+            "1": "i",
+            "2": "s",
+            "3": "p",
+            "4": "a",
+            "5": "t",
+            "6": "c",
+            "7": "h",
+            "8": "C",
+            "9": "o",
+            "10": "u",
+            "11": "n",
+            "12": "t",
+            "13": "e",
+            "14": "r",
+            "attribute": {
+              "label": "Dispatch75",
+              "name": "Dispatch75",
+              "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+              "rrdFile": "Dispatch75.rrd"
+            },
+            "label": "75",
+            "node": {
+              "snmpInterfaces": [],
+              "ipInterfaces": [
+                {
+                  "services": [],
+                  "id": 6,
+                  "hostname": "localhost",
+                  "ipAddress": {
+                    "groups": 4,
+                    "parsedAddress": [
+                      "127",
+                      "0",
+                      "0",
+                      "1"
+                    ],
+                    "parsedSubnet": "",
+                    "subnet": "/32",
+                    "subnetMask": 32,
+                    "v4": true,
+                    "address": "127.0.0.1",
+                    "addressMinusSuffix": "127.0.0.1"
+                  },
+                  "isDown": false,
+                  "isManaged": {
+                    "id": "M",
+                    "label": "MANAGED"
+                  },
+                  "lastCapsdPoll": "2023-06-27T11:38:21.269Z",
+                  "monitoredServiceCount": 2,
+                  "snmpPrimary": {
+                    "id": "P",
+                    "label": "PRIMARY"
+                  },
+                  "node": {
+                    "id": 2
+                  }
+                }
+              ],
+              "categories": [],
+              "assets": {
+                "category": "Unspecified",
+                "id": 7,
+                "building": "selfmonitor",
+                "lastModifiedBy": "",
+                "lastModifiedDate": 1687865908645
+              },
+              "id": 2,
+              "label": "localhost",
+              "location": "Default",
+              "foreignSource": "selfmonitor",
+              "foreignId": "2",
+              "labelSource": {
+                "id": "U",
+                "label": "USER"
+              },
+              "createTime": "2023-06-27T11:38:21.254Z",
+              "lastCapsdPoll": "2023-06-27T11:38:21.269Z",
+              "type": {
+                "id": "A",
+                "label": "ACTIVE"
+              }
+            },
+            "resource": {
+              "children": {
+                "offset": 0,
+                "resource": []
+              },
+              "externalValueAttributes": {},
+              "id": "sinkProducerMetrics[Telemetry-BMP]",
+              "label": "Telemetry-BMP",
+              "name": "Telemetry-BMP",
+              "parentId": "node[selfmonitor:2]",
+              "rrdGraphAttributes": {
+                "Dispatch50": {
+                  "name": "Dispatch50",
+                  "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+                  "rrdFile": "Dispatch50.rrd"
+                },
+                "Dispatch75": {
+                  "name": "Dispatch75",
+                  "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+                  "rrdFile": "Dispatch75.rrd"
+                },
+                "Dispatch95": {
+                  "name": "Dispatch95",
+                  "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+                  "rrdFile": "Dispatch95.rrd"
+                },
+                "Dispatch98": {
+                  "name": "Dispatch98",
+                  "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+                  "rrdFile": "Dispatch98.rrd"
+                },
+                "Dispatch99": {
+                  "name": "Dispatch99",
+                  "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+                  "rrdFile": "Dispatch99.rrd"
+                },
+                "Dispatch999": {
+                  "name": "Dispatch999",
+                  "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+                  "rrdFile": "Dispatch999.rrd"
+                },
+                "DispatchCounter": {
+                  "name": "DispatchCounter",
+                  "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+                  "rrdFile": "DispatchCounter.rrd"
+                },
+                "DispatchRate1m": {
+                  "name": "DispatchRate1m",
+                  "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+                  "rrdFile": "DispatchRate1m.rrd"
+                },
+                "DispatchRate5m": {
+                  "name": "DispatchRate5m",
+                  "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+                  "rrdFile": "DispatchRate5m.rrd"
+                },
+                "DroppedCounter": {
+                  "name": "DroppedCounter",
+                  "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+                  "rrdFile": "DroppedCounter.rrd"
+                },
+                "QueueSize": {
+                  "name": "QueueSize",
+                  "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+                  "rrdFile": "QueueSize.rrd"
+                }
+              },
+              "stringPropertyAttributes": {
+                "domain": "org.opennms.core.ipc.sink.producer",
+                "name": "Telemetry-BMP.dropped"
+              },
+              "typeLabel": "Sink Producer Metrics"
+            }
+          },
+          "datasource": {
+            "type": "opennms-performance-datasource",
+            "uid": "PF64BB6D6ECC8F3F8"
+          },
+          "hide": false,
+          "label": "Messages",
+          "nodeId": "Minions:minion-01",
+          "performanceType": {
+            "label": "Attribute",
+            "value": 1
+          },
+          "refId": "B",
+          "resourceId": "sinkProducerMetrics[Telemetry-BMP]",
+          "type": "attribute"
+        },
+        {
+          "attribute": {
+            "0": "D",
+            "1": "i",
+            "2": "s",
+            "3": "p",
+            "4": "a",
+            "5": "t",
+            "6": "c",
+            "7": "h",
+            "8": "C",
+            "9": "o",
+            "10": "u",
+            "11": "n",
+            "12": "t",
+            "13": "e",
+            "14": "r",
+            "attribute": {
+              "label": "Dispatch95",
+              "name": "Dispatch95",
+              "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+              "rrdFile": "Dispatch95.rrd"
+            },
+            "label": "95",
+            "node": {
+              "snmpInterfaces": [],
+              "ipInterfaces": [
+                {
+                  "services": [],
+                  "id": 6,
+                  "hostname": "localhost",
+                  "ipAddress": {
+                    "groups": 4,
+                    "parsedAddress": [
+                      "127",
+                      "0",
+                      "0",
+                      "1"
+                    ],
+                    "parsedSubnet": "",
+                    "subnet": "/32",
+                    "subnetMask": 32,
+                    "v4": true,
+                    "address": "127.0.0.1",
+                    "addressMinusSuffix": "127.0.0.1"
+                  },
+                  "isDown": false,
+                  "isManaged": {
+                    "id": "M",
+                    "label": "MANAGED"
+                  },
+                  "lastCapsdPoll": "2023-06-27T11:38:21.269Z",
+                  "monitoredServiceCount": 2,
+                  "snmpPrimary": {
+                    "id": "P",
+                    "label": "PRIMARY"
+                  },
+                  "node": {
+                    "id": 2
+                  }
+                }
+              ],
+              "categories": [],
+              "assets": {
+                "category": "Unspecified",
+                "id": 7,
+                "building": "selfmonitor",
+                "lastModifiedBy": "",
+                "lastModifiedDate": 1687865908645
+              },
+              "id": 2,
+              "label": "localhost",
+              "location": "Default",
+              "foreignSource": "selfmonitor",
+              "foreignId": "2",
+              "labelSource": {
+                "id": "U",
+                "label": "USER"
+              },
+              "createTime": "2023-06-27T11:38:21.254Z",
+              "lastCapsdPoll": "2023-06-27T11:38:21.269Z",
+              "type": {
+                "id": "A",
+                "label": "ACTIVE"
+              }
+            },
+            "resource": {
+              "children": {
+                "offset": 0,
+                "resource": []
+              },
+              "externalValueAttributes": {},
+              "id": "sinkProducerMetrics[Telemetry-BMP]",
+              "label": "Telemetry-BMP",
+              "name": "Telemetry-BMP",
+              "parentId": "node[selfmonitor:2]",
+              "rrdGraphAttributes": {
+                "Dispatch50": {
+                  "name": "Dispatch50",
+                  "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+                  "rrdFile": "Dispatch50.rrd"
+                },
+                "Dispatch75": {
+                  "name": "Dispatch75",
+                  "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+                  "rrdFile": "Dispatch75.rrd"
+                },
+                "Dispatch95": {
+                  "name": "Dispatch95",
+                  "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+                  "rrdFile": "Dispatch95.rrd"
+                },
+                "Dispatch98": {
+                  "name": "Dispatch98",
+                  "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+                  "rrdFile": "Dispatch98.rrd"
+                },
+                "Dispatch99": {
+                  "name": "Dispatch99",
+                  "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+                  "rrdFile": "Dispatch99.rrd"
+                },
+                "Dispatch999": {
+                  "name": "Dispatch999",
+                  "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+                  "rrdFile": "Dispatch999.rrd"
+                },
+                "DispatchCounter": {
+                  "name": "DispatchCounter",
+                  "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+                  "rrdFile": "DispatchCounter.rrd"
+                },
+                "DispatchRate1m": {
+                  "name": "DispatchRate1m",
+                  "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+                  "rrdFile": "DispatchRate1m.rrd"
+                },
+                "DispatchRate5m": {
+                  "name": "DispatchRate5m",
+                  "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+                  "rrdFile": "DispatchRate5m.rrd"
+                },
+                "DroppedCounter": {
+                  "name": "DroppedCounter",
+                  "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+                  "rrdFile": "DroppedCounter.rrd"
+                },
+                "QueueSize": {
+                  "name": "QueueSize",
+                  "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+                  "rrdFile": "QueueSize.rrd"
+                }
+              },
+              "stringPropertyAttributes": {
+                "domain": "org.opennms.core.ipc.sink.producer",
+                "name": "Telemetry-BMP.dropped"
+              },
+              "typeLabel": "Sink Producer Metrics"
+            }
+          },
+          "datasource": {
+            "type": "opennms-performance-datasource",
+            "uid": "PF64BB6D6ECC8F3F8"
+          },
+          "hide": false,
+          "label": "Messages",
+          "nodeId": "Minions:minion-01",
+          "performanceType": {
+            "label": "Attribute",
+            "value": 1
+          },
+          "refId": "D",
+          "resourceId": "sinkProducerMetrics[Telemetry-BMP]",
+          "type": "attribute"
+        },
+        {
+          "attribute": {
+            "0": "D",
+            "1": "i",
+            "2": "s",
+            "3": "p",
+            "4": "a",
+            "5": "t",
+            "6": "c",
+            "7": "h",
+            "8": "C",
+            "9": "o",
+            "10": "u",
+            "11": "n",
+            "12": "t",
+            "13": "e",
+            "14": "r",
+            "attribute": {
+              "label": "Dispatch98",
+              "name": "Dispatch98",
+              "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+              "rrdFile": "Dispatch98.rrd"
+            },
+            "label": "98",
+            "node": {
+              "snmpInterfaces": [],
+              "ipInterfaces": [
+                {
+                  "services": [],
+                  "id": 6,
+                  "hostname": "localhost",
+                  "ipAddress": {
+                    "groups": 4,
+                    "parsedAddress": [
+                      "127",
+                      "0",
+                      "0",
+                      "1"
+                    ],
+                    "parsedSubnet": "",
+                    "subnet": "/32",
+                    "subnetMask": 32,
+                    "v4": true,
+                    "address": "127.0.0.1",
+                    "addressMinusSuffix": "127.0.0.1"
+                  },
+                  "isDown": false,
+                  "isManaged": {
+                    "id": "M",
+                    "label": "MANAGED"
+                  },
+                  "lastCapsdPoll": "2023-06-27T11:38:21.269Z",
+                  "monitoredServiceCount": 2,
+                  "snmpPrimary": {
+                    "id": "P",
+                    "label": "PRIMARY"
+                  },
+                  "node": {
+                    "id": 2
+                  }
+                }
+              ],
+              "categories": [],
+              "assets": {
+                "category": "Unspecified",
+                "id": 7,
+                "building": "selfmonitor",
+                "lastModifiedBy": "",
+                "lastModifiedDate": 1687865908645
+              },
+              "id": 2,
+              "label": "localhost",
+              "location": "Default",
+              "foreignSource": "selfmonitor",
+              "foreignId": "2",
+              "labelSource": {
+                "id": "U",
+                "label": "USER"
+              },
+              "createTime": "2023-06-27T11:38:21.254Z",
+              "lastCapsdPoll": "2023-06-27T11:38:21.269Z",
+              "type": {
+                "id": "A",
+                "label": "ACTIVE"
+              }
+            },
+            "resource": {
+              "children": {
+                "offset": 0,
+                "resource": []
+              },
+              "externalValueAttributes": {},
+              "id": "sinkProducerMetrics[Telemetry-BMP]",
+              "label": "Telemetry-BMP",
+              "name": "Telemetry-BMP",
+              "parentId": "node[selfmonitor:2]",
+              "rrdGraphAttributes": {
+                "Dispatch50": {
+                  "name": "Dispatch50",
+                  "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+                  "rrdFile": "Dispatch50.rrd"
+                },
+                "Dispatch75": {
+                  "name": "Dispatch75",
+                  "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+                  "rrdFile": "Dispatch75.rrd"
+                },
+                "Dispatch95": {
+                  "name": "Dispatch95",
+                  "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+                  "rrdFile": "Dispatch95.rrd"
+                },
+                "Dispatch98": {
+                  "name": "Dispatch98",
+                  "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+                  "rrdFile": "Dispatch98.rrd"
+                },
+                "Dispatch99": {
+                  "name": "Dispatch99",
+                  "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+                  "rrdFile": "Dispatch99.rrd"
+                },
+                "Dispatch999": {
+                  "name": "Dispatch999",
+                  "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+                  "rrdFile": "Dispatch999.rrd"
+                },
+                "DispatchCounter": {
+                  "name": "DispatchCounter",
+                  "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+                  "rrdFile": "DispatchCounter.rrd"
+                },
+                "DispatchRate1m": {
+                  "name": "DispatchRate1m",
+                  "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+                  "rrdFile": "DispatchRate1m.rrd"
+                },
+                "DispatchRate5m": {
+                  "name": "DispatchRate5m",
+                  "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+                  "rrdFile": "DispatchRate5m.rrd"
+                },
+                "DroppedCounter": {
+                  "name": "DroppedCounter",
+                  "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+                  "rrdFile": "DroppedCounter.rrd"
+                },
+                "QueueSize": {
+                  "name": "QueueSize",
+                  "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+                  "rrdFile": "QueueSize.rrd"
+                }
+              },
+              "stringPropertyAttributes": {
+                "domain": "org.opennms.core.ipc.sink.producer",
+                "name": "Telemetry-BMP.dropped"
+              },
+              "typeLabel": "Sink Producer Metrics"
+            }
+          },
+          "datasource": {
+            "type": "opennms-performance-datasource",
+            "uid": "PF64BB6D6ECC8F3F8"
+          },
+          "hide": false,
+          "label": "Messages",
+          "nodeId": "Minions:minion-01",
+          "performanceType": {
+            "label": "Attribute",
+            "value": 1
+          },
+          "refId": "C",
+          "resourceId": "sinkProducerMetrics[Telemetry-BMP]",
+          "type": "attribute"
+        },
+        {
+          "attribute": {
+            "0": "D",
+            "1": "i",
+            "2": "s",
+            "3": "p",
+            "4": "a",
+            "5": "t",
+            "6": "c",
+            "7": "h",
+            "8": "C",
+            "9": "o",
+            "10": "u",
+            "11": "n",
+            "12": "t",
+            "13": "e",
+            "14": "r",
+            "attribute": {
+              "label": "Dispatch99",
+              "name": "Dispatch99",
+              "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+              "rrdFile": "Dispatch99.rrd"
+            },
+            "label": "99",
+            "node": {
+              "snmpInterfaces": [],
+              "ipInterfaces": [
+                {
+                  "services": [],
+                  "id": 6,
+                  "hostname": "localhost",
+                  "ipAddress": {
+                    "groups": 4,
+                    "parsedAddress": [
+                      "127",
+                      "0",
+                      "0",
+                      "1"
+                    ],
+                    "parsedSubnet": "",
+                    "subnet": "/32",
+                    "subnetMask": 32,
+                    "v4": true,
+                    "address": "127.0.0.1",
+                    "addressMinusSuffix": "127.0.0.1"
+                  },
+                  "isDown": false,
+                  "isManaged": {
+                    "id": "M",
+                    "label": "MANAGED"
+                  },
+                  "lastCapsdPoll": "2023-06-27T11:38:21.269Z",
+                  "monitoredServiceCount": 2,
+                  "snmpPrimary": {
+                    "id": "P",
+                    "label": "PRIMARY"
+                  },
+                  "node": {
+                    "id": 2
+                  }
+                }
+              ],
+              "categories": [],
+              "assets": {
+                "category": "Unspecified",
+                "id": 7,
+                "building": "selfmonitor",
+                "lastModifiedBy": "",
+                "lastModifiedDate": 1687865908645
+              },
+              "id": 2,
+              "label": "localhost",
+              "location": "Default",
+              "foreignSource": "selfmonitor",
+              "foreignId": "2",
+              "labelSource": {
+                "id": "U",
+                "label": "USER"
+              },
+              "createTime": "2023-06-27T11:38:21.254Z",
+              "lastCapsdPoll": "2023-06-27T11:38:21.269Z",
+              "type": {
+                "id": "A",
+                "label": "ACTIVE"
+              }
+            },
+            "resource": {
+              "children": {
+                "offset": 0,
+                "resource": []
+              },
+              "externalValueAttributes": {},
+              "id": "sinkProducerMetrics[Telemetry-BMP]",
+              "label": "Telemetry-BMP",
+              "name": "Telemetry-BMP",
+              "parentId": "node[selfmonitor:2]",
+              "rrdGraphAttributes": {
+                "Dispatch50": {
+                  "name": "Dispatch50",
+                  "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+                  "rrdFile": "Dispatch50.rrd"
+                },
+                "Dispatch75": {
+                  "name": "Dispatch75",
+                  "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+                  "rrdFile": "Dispatch75.rrd"
+                },
+                "Dispatch95": {
+                  "name": "Dispatch95",
+                  "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+                  "rrdFile": "Dispatch95.rrd"
+                },
+                "Dispatch98": {
+                  "name": "Dispatch98",
+                  "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+                  "rrdFile": "Dispatch98.rrd"
+                },
+                "Dispatch99": {
+                  "name": "Dispatch99",
+                  "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+                  "rrdFile": "Dispatch99.rrd"
+                },
+                "Dispatch999": {
+                  "name": "Dispatch999",
+                  "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+                  "rrdFile": "Dispatch999.rrd"
+                },
+                "DispatchCounter": {
+                  "name": "DispatchCounter",
+                  "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+                  "rrdFile": "DispatchCounter.rrd"
+                },
+                "DispatchRate1m": {
+                  "name": "DispatchRate1m",
+                  "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+                  "rrdFile": "DispatchRate1m.rrd"
+                },
+                "DispatchRate5m": {
+                  "name": "DispatchRate5m",
+                  "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+                  "rrdFile": "DispatchRate5m.rrd"
+                },
+                "DroppedCounter": {
+                  "name": "DroppedCounter",
+                  "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+                  "rrdFile": "DroppedCounter.rrd"
+                },
+                "QueueSize": {
+                  "name": "QueueSize",
+                  "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+                  "rrdFile": "QueueSize.rrd"
+                }
+              },
+              "stringPropertyAttributes": {
+                "domain": "org.opennms.core.ipc.sink.producer",
+                "name": "Telemetry-BMP.dropped"
+              },
+              "typeLabel": "Sink Producer Metrics"
+            }
+          },
+          "datasource": {
+            "type": "opennms-performance-datasource",
+            "uid": "PF64BB6D6ECC8F3F8"
+          },
+          "hide": false,
+          "label": "Messages",
+          "nodeId": "Minions:minion-01",
+          "performanceType": {
+            "label": "Attribute",
+            "value": 1
+          },
+          "refId": "E",
+          "resourceId": "sinkProducerMetrics[Telemetry-BMP]",
+          "type": "attribute"
+        },
+        {
+          "attribute": {
+            "0": "D",
+            "1": "i",
+            "2": "s",
+            "3": "p",
+            "4": "a",
+            "5": "t",
+            "6": "c",
+            "7": "h",
+            "8": "C",
+            "9": "o",
+            "10": "u",
+            "11": "n",
+            "12": "t",
+            "13": "e",
+            "14": "r",
+            "attribute": {
+              "label": "Dispatch999",
+              "name": "Dispatch999",
+              "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+              "rrdFile": "Dispatch999.rrd"
+            },
+            "label": "99.9",
+            "node": {
+              "snmpInterfaces": [],
+              "ipInterfaces": [
+                {
+                  "services": [],
+                  "id": 6,
+                  "hostname": "localhost",
+                  "ipAddress": {
+                    "groups": 4,
+                    "parsedAddress": [
+                      "127",
+                      "0",
+                      "0",
+                      "1"
+                    ],
+                    "parsedSubnet": "",
+                    "subnet": "/32",
+                    "subnetMask": 32,
+                    "v4": true,
+                    "address": "127.0.0.1",
+                    "addressMinusSuffix": "127.0.0.1"
+                  },
+                  "isDown": false,
+                  "isManaged": {
+                    "id": "M",
+                    "label": "MANAGED"
+                  },
+                  "lastCapsdPoll": "2023-06-27T11:38:21.269Z",
+                  "monitoredServiceCount": 2,
+                  "snmpPrimary": {
+                    "id": "P",
+                    "label": "PRIMARY"
+                  },
+                  "node": {
+                    "id": 2
+                  }
+                }
+              ],
+              "categories": [],
+              "assets": {
+                "category": "Unspecified",
+                "id": 7,
+                "building": "selfmonitor",
+                "lastModifiedBy": "",
+                "lastModifiedDate": 1687865908645
+              },
+              "id": 2,
+              "label": "localhost",
+              "location": "Default",
+              "foreignSource": "selfmonitor",
+              "foreignId": "2",
+              "labelSource": {
+                "id": "U",
+                "label": "USER"
+              },
+              "createTime": "2023-06-27T11:38:21.254Z",
+              "lastCapsdPoll": "2023-06-27T11:38:21.269Z",
+              "type": {
+                "id": "A",
+                "label": "ACTIVE"
+              }
+            },
+            "resource": {
+              "children": {
+                "offset": 0,
+                "resource": []
+              },
+              "externalValueAttributes": {},
+              "id": "sinkProducerMetrics[Telemetry-BMP]",
+              "label": "Telemetry-BMP",
+              "name": "Telemetry-BMP",
+              "parentId": "node[selfmonitor:2]",
+              "rrdGraphAttributes": {
+                "Dispatch50": {
+                  "name": "Dispatch50",
+                  "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+                  "rrdFile": "Dispatch50.rrd"
+                },
+                "Dispatch75": {
+                  "name": "Dispatch75",
+                  "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+                  "rrdFile": "Dispatch75.rrd"
+                },
+                "Dispatch95": {
+                  "name": "Dispatch95",
+                  "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+                  "rrdFile": "Dispatch95.rrd"
+                },
+                "Dispatch98": {
+                  "name": "Dispatch98",
+                  "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+                  "rrdFile": "Dispatch98.rrd"
+                },
+                "Dispatch99": {
+                  "name": "Dispatch99",
+                  "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+                  "rrdFile": "Dispatch99.rrd"
+                },
+                "Dispatch999": {
+                  "name": "Dispatch999",
+                  "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+                  "rrdFile": "Dispatch999.rrd"
+                },
+                "DispatchCounter": {
+                  "name": "DispatchCounter",
+                  "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+                  "rrdFile": "DispatchCounter.rrd"
+                },
+                "DispatchRate1m": {
+                  "name": "DispatchRate1m",
+                  "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+                  "rrdFile": "DispatchRate1m.rrd"
+                },
+                "DispatchRate5m": {
+                  "name": "DispatchRate5m",
+                  "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+                  "rrdFile": "DispatchRate5m.rrd"
+                },
+                "DroppedCounter": {
+                  "name": "DroppedCounter",
+                  "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+                  "rrdFile": "DroppedCounter.rrd"
+                },
+                "QueueSize": {
+                  "name": "QueueSize",
+                  "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+                  "rrdFile": "QueueSize.rrd"
+                }
+              },
+              "stringPropertyAttributes": {
+                "domain": "org.opennms.core.ipc.sink.producer",
+                "name": "Telemetry-BMP.dropped"
+              },
+              "typeLabel": "Sink Producer Metrics"
+            }
+          },
+          "datasource": {
+            "type": "opennms-performance-datasource",
+            "uid": "PF64BB6D6ECC8F3F8"
+          },
+          "hide": false,
+          "label": "Messages",
+          "nodeId": "Minions:minion-01",
+          "performanceType": {
+            "label": "Attribute",
+            "value": 1
+          },
+          "refId": "F",
           "resourceId": "sinkProducerMetrics[Telemetry-BMP]",
           "type": "attribute"
         }
@@ -121,7 +1165,7 @@
     {
       "datasource": {
         "type": "opennms-performance-datasource",
-        "uid": "HTYjzQO4k"
+        "uid": "PF64BB6D6ECC8F3F8"
       },
       "fieldConfig": {
         "defaults": {
@@ -129,7 +1173,9 @@
             "mode": "palette-classic"
           },
           "custom": {
-            "axisLabel": "",
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "Number",
             "axisPlacement": "auto",
             "barAlignment": 0,
             "drawStyle": "line",
@@ -175,16 +1221,22 @@
       },
       "gridPos": {
         "h": 9,
-        "w": 11,
-        "x": 11,
+        "w": 12,
+        "x": 12,
         "y": 0
       },
       "id": 3,
       "options": {
         "legend": {
-          "calcs": [],
-          "displayMode": "list",
-          "placement": "bottom"
+          "calcs": [
+            "last",
+            "min",
+            "max",
+            "mean"
+          ],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": true
         },
         "tooltip": {
           "mode": "single",
@@ -193,13 +1245,170 @@
       },
       "targets": [
         {
-          "attribute": "QueueSize",
+          "attribute": {
+            "0": "Q",
+            "1": "u",
+            "2": "e",
+            "3": "u",
+            "4": "e",
+            "5": "S",
+            "6": "i",
+            "7": "z",
+            "8": "e",
+            "attribute": {
+              "label": "QueueSize",
+              "name": "QueueSize",
+              "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+              "rrdFile": "QueueSize.rrd"
+            },
+            "label": "Messages",
+            "node": {
+              "snmpInterfaces": [],
+              "ipInterfaces": [
+                {
+                  "services": [],
+                  "id": 6,
+                  "hostname": "localhost",
+                  "ipAddress": {
+                    "groups": 4,
+                    "parsedAddress": [
+                      "127",
+                      "0",
+                      "0",
+                      "1"
+                    ],
+                    "parsedSubnet": "",
+                    "subnet": "/32",
+                    "subnetMask": 32,
+                    "v4": true,
+                    "address": "127.0.0.1",
+                    "addressMinusSuffix": "127.0.0.1"
+                  },
+                  "isDown": false,
+                  "isManaged": {
+                    "id": "M",
+                    "label": "MANAGED"
+                  },
+                  "lastCapsdPoll": "2023-06-27T11:38:21.269Z",
+                  "monitoredServiceCount": 2,
+                  "snmpPrimary": {
+                    "id": "P",
+                    "label": "PRIMARY"
+                  },
+                  "node": {
+                    "id": 2
+                  }
+                }
+              ],
+              "categories": [],
+              "assets": {
+                "category": "Unspecified",
+                "id": 7,
+                "building": "selfmonitor",
+                "lastModifiedBy": "",
+                "lastModifiedDate": 1687865908645
+              },
+              "id": 2,
+              "label": "localhost",
+              "location": "Default",
+              "foreignSource": "selfmonitor",
+              "foreignId": "2",
+              "labelSource": {
+                "id": "U",
+                "label": "USER"
+              },
+              "createTime": "2023-06-27T11:38:21.254Z",
+              "lastCapsdPoll": "2023-06-27T11:38:21.269Z",
+              "type": {
+                "id": "A",
+                "label": "ACTIVE"
+              }
+            },
+            "resource": {
+              "children": {
+                "offset": 0,
+                "resource": []
+              },
+              "externalValueAttributes": {},
+              "id": "sinkProducerMetrics[Telemetry-BMP]",
+              "label": "Telemetry-BMP",
+              "name": "Telemetry-BMP",
+              "parentId": "node[selfmonitor:2]",
+              "rrdGraphAttributes": {
+                "Dispatch50": {
+                  "name": "Dispatch50",
+                  "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+                  "rrdFile": "Dispatch50.rrd"
+                },
+                "Dispatch75": {
+                  "name": "Dispatch75",
+                  "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+                  "rrdFile": "Dispatch75.rrd"
+                },
+                "Dispatch95": {
+                  "name": "Dispatch95",
+                  "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+                  "rrdFile": "Dispatch95.rrd"
+                },
+                "Dispatch98": {
+                  "name": "Dispatch98",
+                  "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+                  "rrdFile": "Dispatch98.rrd"
+                },
+                "Dispatch99": {
+                  "name": "Dispatch99",
+                  "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+                  "rrdFile": "Dispatch99.rrd"
+                },
+                "Dispatch999": {
+                  "name": "Dispatch999",
+                  "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+                  "rrdFile": "Dispatch999.rrd"
+                },
+                "DispatchCounter": {
+                  "name": "DispatchCounter",
+                  "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+                  "rrdFile": "DispatchCounter.rrd"
+                },
+                "DispatchRate1m": {
+                  "name": "DispatchRate1m",
+                  "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+                  "rrdFile": "DispatchRate1m.rrd"
+                },
+                "DispatchRate5m": {
+                  "name": "DispatchRate5m",
+                  "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+                  "rrdFile": "DispatchRate5m.rrd"
+                },
+                "DroppedCounter": {
+                  "name": "DroppedCounter",
+                  "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+                  "rrdFile": "DroppedCounter.rrd"
+                },
+                "QueueSize": {
+                  "name": "QueueSize",
+                  "relativePath": "snmp/fs/selfmonitor/2/sinkProducerMetrics/Telemetry-BMP",
+                  "rrdFile": "QueueSize.rrd"
+                }
+              },
+              "stringPropertyAttributes": {
+                "domain": "org.opennms.core.ipc.sink.producer",
+                "name": "Telemetry-BMP.dropped"
+              },
+              "typeLabel": "Sink Producer Metrics"
+            },
+            "subAttribute": ""
+          },
           "datasource": {
             "type": "opennms-performance-datasource",
-            "uid": "HTYjzQO4k"
+            "uid": "PF64BB6D6ECC8F3F8"
           },
           "label": "Messages",
           "nodeId": "Minions:minion-01",
+          "performanceType": {
+            "label": "Attribute",
+            "value": 1
+          },
           "refId": "A",
           "resourceId": "sinkProducerMetrics[Telemetry-BMP]",
           "type": "attribute"
@@ -209,7 +1418,8 @@
       "type": "timeseries"
     }
   ],
-  "schemaVersion": 36,
+  "refresh": "",
+  "schemaVersion": 38,
   "style": "dark",
   "tags": [],
   "templating": {
@@ -223,6 +1433,6 @@
   "timezone": "",
   "title": "BMP Debugging",
   "uid": "KLWViQdVz",
-  "version": 3,
+  "version": 2,
   "weekStart": ""
 }
