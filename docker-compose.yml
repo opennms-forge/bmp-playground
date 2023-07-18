@@ -66,6 +66,7 @@ services:
       - POSTGRES_PORT=5432
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
+    command: postgres -c 'max_connections=200'
     volumes:
       - data-postgres:/var/lib/postgresql/data:delegated
     networks:
@@ -73,7 +74,7 @@ services:
         ipv4_address: 192.168.10.3
 
   horizon:
-    image: opennms/horizon:latest
+    image: opennms/horizon:32.0.1
     environment:
       - TZ=Europe/Berlin
       - POSTGRES_HOST=database
@@ -120,7 +121,7 @@ services:
       - "3000:3000/tcp"
 
   minion:
-    image: opennms/minion:latest
+    image: opennms/minion:32.0.1
     environment:
       - TZ=Europe/Berlin
       - MINION_ID=minion-01
