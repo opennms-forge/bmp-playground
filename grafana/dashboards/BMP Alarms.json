@@ -6,10 +6,10 @@
     "x": 0,
     "y": 0
   },
-  "type": "opennms-helm-alarm-table-panel",
+  "type": "opennms-alarm-table-panel",
   "title": "Alarms",
   "datasource": {
-    "type": "opennms-helm-entity-datasource",
+    "type": "opennms-entity-datasource",
     "uid": "P506178D7A6C7B590"
   },
   "columns": [
@@ -223,7 +223,7 @@
   "targets": [
     {
       "datasource": {
-        "type": "opennms-helm-entity-datasource",
+        "type": "opennms-entity-datasource",
         "uid": "P506178D7A6C7B590"
       },
       "entityType": {

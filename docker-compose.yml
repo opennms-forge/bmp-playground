@@ -99,7 +99,7 @@ services:
       - "11019:11019/tcp"
 
   grafana:
-    image: docker.io/grafana/grafana:8.5.21
+    image: docker.io/grafana/grafana:10.0.1
     depends_on:
       - horizon
     networks:
@@ -109,7 +109,7 @@ services:
         ipv4_address: 192.168.10.100
     environment:
       - TZ=${TIMEZONE:-America/New_York}
-      - GF_INSTALL_PLUGINS=https://github.com/OpenNMS/opennms-helm/releases/download/v8.0.4/opennms-helm-app-8.0.4.zip;opennms-helm-app,grafana-piechart-panel,neocat-cal-heatmap-panel,briangann-datatable-panel
+      - GF_INSTALL_PLUGINS=opennms-opennms-app,grafana-piechart-panel,neocat-cal-heatmap-panel,briangann-datatable-panel
       - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
       - GF_AUTH_ANONYMOUS_ENABLED=true
       - GF_AUTH_BASIC_ENABLED=false
@@ -138,7 +138,7 @@ services:
       - "8201:8201/tcp"
 
   r01:
-    image: quay.io/labmonkeys/gobgp:3.12.0.b1465
+    image: quay.io/labmonkeys/gobgp:3.15.0.b1887
     environment:
       - TZ=Europe/Berlin
     volumes: 
@@ -153,7 +153,7 @@ services:
     command: ["-f", "/gobgpd.conf"]
 
   r02:
-    image: quay.io/labmonkeys/gobgp:3.12.0.b1465
+    image: quay.io/labmonkeys/gobgp:3.15.0.b1887
     environment:
       - TZ=Europe/Berlin
     volumes: 
@@ -168,7 +168,7 @@ services:
     command: ["-f", "/gobgpd.conf"]
 
   r03:
-    image: quay.io/labmonkeys/gobgp:3.12.0.b1465
+    image: quay.io/labmonkeys/gobgp:3.15.0.b1887
     environment:
       - TZ=Europe/Berlin
     volumes: 
@@ -184,7 +184,7 @@ services:
 
 ### Router in remote location
   location-r01:
-    image: quay.io/labmonkeys/gobgp:3.12.0.b1465
+    image: quay.io/labmonkeys/gobgp:3.15.0.b1887
     environment:
       - TZ=Europe/Berlin
     volumes: 
@@ -199,7 +199,7 @@ services:
     command: ["-f", "/gobgpd.conf"]
 
   location-r02:
-    image: quay.io/labmonkeys/gobgp:3.12.0.b1465
+    image: quay.io/labmonkeys/gobgp:3.15.0.b1887
     environment:
       - TZ=Europe/Berlin
     volumes: 
@@ -214,7 +214,7 @@ services:
     command: ["-f", "/gobgpd.conf"]
 
   location-r03:
-    image: quay.io/labmonkeys/gobgp:3.12.0.b1465
+    image: quay.io/labmonkeys/gobgp:3.15.0.b1887
     environment:
       - TZ=Europe/Berlin
     volumes: 
