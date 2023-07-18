@@ -60,6 +60,7 @@ volumes:
 services:
   database:
     image: timescale/timescaledb:latest-pg15
+    hostname: database
     environment:
       - TZ=Europe/Berlin
       - POSTGRES_HOST=database
@@ -75,6 +76,7 @@ services:
 
   horizon:
     image: opennms/horizon:32.0.1
+    hostname: horizon
     environment:
       - TZ=Europe/Berlin
       - POSTGRES_HOST=database
@@ -119,6 +121,30 @@ services:
       - ./grafana:/etc/grafana/provisioning/
     ports:
       - "3000:3000/tcp"
+
+  sentinel:
+    image: opennms/sentinel:32.0.1
+    environment:
+      - TZ=Europe/Berlin
+      - SENTINEL_ID=sentinel-01
+      - SENTINEL_LOCATION=sentinel
+      - OPENNMS_BROKER_URL=tcp://horizon:61616
+      - OPENNMS_HTTP_URL=http://horizon:8980/opennms
+      - POSTGRES_HOST=database
+      - POSTGRES_PORT=5432
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=opennms
+      - JAVA_DEBUG_OPTS=-agentlib:jdwp=transport=dt_socket,address=*:5005,server=y,suspend=n
+      - KARAF_DEBUG=true
+    volumes:
+      - ./sentinel-overlay:/opt/sentinel-etc-overlay
+    networks:
+      net-mgmt:
+        ipv4_address: 192.168.10.99
+    ports:
+      - "8301:8301/tcp"
+      - "5005:5005/tcp"
 
   minion:
     image: opennms/minion:32.0.1

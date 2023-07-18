@@ -43,10 +43,13 @@ Show BGP neighborhood status
 docker-compose exec r01 gobgp neighbor
 ```
 
-Add a route
+Add some routes
 ```
 docker-compose exec r02 gobgp global rib add 10.36.0.0/16 -a ipv4
+docker-compose exec location-r02 gobgp global rib add 10.37.0.0/16 -a ipv4
 ```
+
+
 
 Debug and trigger statistics
 ```
