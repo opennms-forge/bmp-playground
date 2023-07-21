@@ -1,63 +1,59 @@
+---
 version: '3'
-
 networks:
-# OpenNMS Minion network
-  net-p2p-opennms:
+# Data Center OpenNMS internal network
+  net-onms:
     ipam:
       config:
-        - subnet: 192.168.40.0/24
-
-# BGP Routing network for location Default
-  net-r01:
+        - subnet: 192.168.42.0/27
+# Data Center management network
+  net-mgmt-dc:
     ipam:
       config:
-        - subnet: 192.168.255.0/24
-  net-r02:
+        - subnet: 192.168.42.32/27
+# Location 01 management network
+  net-mgmt-lo01:
     ipam:
       config:
-        - subnet: 192.168.254.0/24
-  net-r03:
+        - subnet: 192.168.42.64/27
+# Data Center BGP peering point-to-point links
+  ptp-100-101:
     ipam:
       config:
-        - subnet: 192.168.253.0/24
-  net-peer:
+        - subnet: 192.168.42.96/29
+  ptp-108-109:
     ipam:
       config:
-        - subnet: 10.0.255.0/24
-  net-mgmt:
+        - subnet: 192.168.42.104/29
+  ptp-116-117:
     ipam:
       config:
-        - subnet: 192.168.10.0/24
-
-# BGP Routing network for a remote location
-  net-location-r01:
+        - subnet: 192.168.42.112/29
+  ptp-124-125:
     ipam:
       config:
-        - subnet: 192.168.250.0/24
-  net-location-r02:
-    ipam:
-      config:
-        - subnet: 192.168.249.0/24
-  net-location-r03:
-    ipam:
-      config:
-        - subnet: 192.168.248.0/24
-  net-location-peer:
-    ipam:
-      config:
-        - subnet: 10.0.250.0/24
-  net-location-mgmt:
-    ipam:
-      config:
-        - subnet: 192.168.50.0/24
-
+        - subnet: 192.168.42.120/29
 
 volumes:
+  data-cortex: {}
   data-postgres: {}
   data-opennms: {}
   data-grafana: {}
 
 services:
+  cortex:
+    image: cortexproject/cortex:v1.15.3
+    container_name: cortex
+    environment:
+      - TZ=Europe/Berlin
+    volumes:
+      - "data-cortex:/cortex"
+      - "./cortex/single-process-config-blocks-local.yaml:/etc/single-process-config-blocks-local.yaml"
+    networks:
+      net-onms:
+        ipv4_address: 192.168.42.4
+    command: [ "-config.file=/etc/single-process-config-blocks-local.yaml" ]
+
   database:
     image: timescale/timescaledb:latest-pg15
     hostname: database
@@ -71,8 +67,8 @@ services:
     volumes:
       - data-postgres:/var/lib/postgresql/data:delegated
     networks:
-      net-mgmt:
-        ipv4_address: 192.168.10.3
+      net-onms:
+        ipv4_address: 192.168.42.8
 
   horizon:
     image: opennms/horizon:32.0.1
@@ -86,12 +82,11 @@ services:
       - OPENNMS_DBNAME=opennms
       - OPENNMS_DBUSER=opennms
       - OPENNMS_DBPASS=opennms
+      - OPENNMS_TIMESERIES_STRATEGY=integration
       - JAVA_OPTS=-Xmx4096m -XX:MaxMetaspaceSize=2048m
     networks:
-      net-mgmt:
-        ipv4_address: 192.168.10.4
-      net-p2p-opennms:
-        ipv4_address: 192.168.40.5
+      net-onms:
+        ipv4_address: 192.168.42.16
     volumes:
       - ./horizon-overlay:/opt/opennms-overlay
     command: ["-s"]
@@ -99,17 +94,14 @@ services:
       - "8980:8980"
       - "8101:8101"
       - "61616:61616/tcp"
-      - "11019:11019/tcp"
 
   grafana:
     image: docker.io/grafana/grafana:10.0.1
     depends_on:
       - horizon
     networks:
-      net-p2p-opennms:
-        ipv4_address: 192.168.40.4
-      net-mgmt:
-        ipv4_address: 192.168.10.100
+      net-onms:
+        ipv4_address: 192.168.42.17
     environment:
       - TZ=${TIMEZONE:-America/New_York}
       - GF_INSTALL_PLUGINS=opennms-opennms-app,grafana-piechart-panel,neocat-cal-heatmap-panel,briangann-datatable-panel
@@ -119,14 +111,12 @@ services:
     volumes:
       - data-grafana:/var/lib/grafana
       - ./grafana:/etc/grafana/provisioning/
-    ports:
-      - "3000:3000/tcp"
 
-  sentinel:
+  sentinel-dc-12:
     image: opennms/sentinel:32.0.1
     environment:
       - TZ=Europe/Berlin
-      - SENTINEL_ID=sentinel-01
+      - SENTINEL_ID=sentinel-dc-12
       - SENTINEL_LOCATION=sentinel
       - OPENNMS_BROKER_URL=tcp://horizon:61616
       - OPENNMS_HTTP_URL=http://horizon:8980/opennms
@@ -140,117 +130,129 @@ services:
     volumes:
       - ./sentinel-overlay:/opt/sentinel-etc-overlay
     networks:
-      net-mgmt:
-        ipv4_address: 192.168.10.99
+      net-onms:
+        ipv4_address: 192.168.42.12
     ports:
       - "8301:8301/tcp"
       - "5005:5005/tcp"
 
-  minion:
+  minion-dc-20:
     image: opennms/minion:32.0.1
     environment:
       - TZ=Europe/Berlin
-      - MINION_ID=minion-01
-      - MINION_LOCATION=location
+      - MINION_ID=minion-dc-20
+      - MINION_LOCATION=data-center
       - OPENNMS_BROKER_URL=tcp://horizon:61616
       - OPENNMS_HTTP_URL=http://horizon:8980/opennms
     volumes:
-      - ./minion-overlay:/opt/minion-etc-overlay
-    networks: 
-      net-p2p-opennms:
-        ipv4_address: 192.168.40.6
-      net-location-mgmt:
-        ipv4_address: 192.168.50.4
+      - ./minion-overlay/minion-dc-20:/opt/minion-etc-overlay
+    networks:
+      net-onms:
+        ipv4_address: 192.168.42.20
+      net-mgmt-dc:
+        ipv4_address: 192.168.42.36
     ports:
       - "8201:8201/tcp"
 
-  r01:
-    image: quay.io/labmonkeys/gobgp:3.15.0.b1887
+  minion-lo01-24:
+    image: opennms/minion:32.0.1
+    environment:
+      - TZ=Europe/Berlin
+      - MINION_ID=minion-lo01-24
+      - MINION_LOCATION=location-01
+      - OPENNMS_BROKER_URL=tcp://horizon:61616
+      - OPENNMS_HTTP_URL=http://horizon:8980/opennms
+    volumes:
+      - ./minion-overlay/minion-lo01-24:/opt/minion-etc-overlay
+    networks:
+      net-onms:
+        ipv4_address: 192.168.42.24
+      net-mgmt-lo01:
+        ipv4_address: 192.168.42.68
+    ports:
+      - "8202:8201/tcp"
+
+  ### BGP Router in Data Center
+  rt-dc-37:
+    image: quay.io/labmonkeys/gobgp:3.16.0.b1914
     environment:
       - TZ=Europe/Berlin
     volumes: 
-      - ./r01/gobgpd.conf:/gobgpd.conf
+      - ./rt-dc-37/gobgpd.conf:/gobgpd.conf
     networks:
-      net-r01:
-        ipv4_address: 192.168.255.5
-      net-peer:
-        ipv4_address: 10.0.255.5
-      net-mgmt:
-        ipv4_address: 192.168.10.5
+      net-mgmt-dc:
+        ipv4_address: 192.168.42.37
+      ptp-100-101:
+        ipv4_address: 192.168.42.100
+      ptp-108-109:
+        ipv4_address: 192.168.42.108
     command: ["-f", "/gobgpd.conf"]
 
-  r02:
-    image: quay.io/labmonkeys/gobgp:3.15.0.b1887
+  rt-dc-38:
+    image: quay.io/labmonkeys/gobgp:3.16.0.b1914
     environment:
       - TZ=Europe/Berlin
     volumes: 
-      - ./r02/gobgpd.conf:/gobgpd.conf
+      - ./rt-dc-38/gobgpd.conf:/gobgpd.conf
     networks:
-      net-r02:
-        ipv4_address: 192.168.254.5
-      net-peer:
-        ipv4_address: 10.0.255.6
-      net-mgmt:
-        ipv4_address: 192.168.10.6
+      net-mgmt-dc:
+        ipv4_address: 192.168.42.38
+      ptp-100-101:
+        ipv4_address: 192.168.42.101
+
     command: ["-f", "/gobgpd.conf"]
 
-  r03:
-    image: quay.io/labmonkeys/gobgp:3.15.0.b1887
+  rt-dc-39:
+    image: quay.io/labmonkeys/gobgp:3.16.0.b1914
     environment:
       - TZ=Europe/Berlin
     volumes: 
-      - ./r03/gobgpd.conf:/gobgpd.conf
+      - ./rt-dc-39/gobgpd.conf:/gobgpd.conf
     networks:
-      net-r03:
-        ipv4_address: 192.168.253.5
-      net-peer:
-        ipv4_address: 10.0.255.7
-      net-mgmt:
-        ipv4_address: 192.168.10.7
+      net-mgmt-dc:
+        ipv4_address: 192.168.42.39
+      ptp-108-109:
+        ipv4_address: 192.168.42.109
     command: ["-f", "/gobgpd.conf"]
 
-### Router in remote location
-  location-r01:
-    image: quay.io/labmonkeys/gobgp:3.15.0.b1887
+### BGP Router in location 01
+  rt-lo01-69:
+    image: quay.io/labmonkeys/gobgp:3.16.0.b1914
     environment:
       - TZ=Europe/Berlin
     volumes: 
-      - ./location-r01/gobgpd.conf:/gobgpd.conf
+      - ./rt-lo01-69/gobgpd.conf:/gobgpd.conf
     networks:
-      net-location-r01:
-        ipv4_address: 192.168.250.5
-      net-location-peer:
-        ipv4_address: 10.0.250.5
-      net-location-mgmt:
-        ipv4_address: 192.168.50.5
+      net-mgmt-lo01:
+        ipv4_address: 192.168.42.69
+      ptp-116-117:
+        ipv4_address: 192.168.42.116
+      ptp-124-125:
+        ipv4_address: 192.168.42.124
     command: ["-f", "/gobgpd.conf"]
 
-  location-r02:
-    image: quay.io/labmonkeys/gobgp:3.15.0.b1887
+  rt-lo01-70:
+    image: quay.io/labmonkeys/gobgp:3.16.0.b1914
     environment:
       - TZ=Europe/Berlin
     volumes: 
-      - ./location-r02/gobgpd.conf:/gobgpd.conf
+      - ./rt-lo01-70/gobgpd.conf:/gobgpd.conf
     networks:
-      net-location-r02:
-        ipv4_address: 192.168.249.5
-      net-location-peer:
-        ipv4_address: 10.0.250.6
-      net-location-mgmt:
-        ipv4_address: 192.168.50.6
+      net-mgmt-lo01:
+        ipv4_address: 192.168.42.70
+      ptp-116-117:
+        ipv4_address: 192.168.42.117
     command: ["-f", "/gobgpd.conf"]
 
-  location-r03:
-    image: quay.io/labmonkeys/gobgp:3.15.0.b1887
+  rt-lo01-71:
+    image: quay.io/labmonkeys/gobgp:3.16.0.b1914
     environment:
       - TZ=Europe/Berlin
     volumes: 
-      - ./location-r03/gobgpd.conf:/gobgpd.conf
+      - ./rt-lo01-71/gobgpd.conf:/gobgpd.conf
     networks:
-      net-location-r03:
-        ipv4_address: 192.168.248.5
-      net-location-peer:
-        ipv4_address: 10.0.250.7
-      net-location-mgmt:
-        ipv4_address: 192.168.50.7
+      net-mgmt-lo01:
+        ipv4_address: 192.168.42.71
+      ptp-124-125:
+        ipv4_address: 192.168.42.125
     command: ["-f", "/gobgpd.conf"]

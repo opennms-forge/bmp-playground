@@ -1,47 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <model-import xmlns="http://xmlns.opennms.org/xsd/config/model-import" date-stamp="2016-10-28T10:50:02.025Z" foreign-source="bgp-routers" last-import="2016-10-28T10:51:29.354Z">
-  <node location="Default" foreign-id="r01" node-label="r01">
-    <interface ip-addr="192.168.10.5" status="1" snmp-primary="N">
+  <node location="data-center" foreign-id="rt-dc-37" node-label="rt-dc-37">
+    <interface ip-addr="192.168.42.37" status="1" snmp-primary="N">
       <monitored-service service-name="ICMP"/>
     </interface>
     <asset name="longitude" value="9.1685303"/>
     <asset name="latitude" value="48.8258763"/>
   </node>
-
-  <node location="Default" foreign-id="r02" node-label="r02">
-    <interface ip-addr="192.168.10.6" status="1" snmp-primary="N">
+  <node location="data-center" foreign-id="rt-dc-38" node-label="rt-dc-38">
+    <interface ip-addr="192.168.42.38" status="1" snmp-primary="N">
       <monitored-service service-name="ICMP"/>
     </interface>
     <asset name="longitude" value="9.1685303"/>
     <asset name="latitude" value="48.8258763"/>
   </node>
-
-  <node location="Default" foreign-id="r03" node-label="r03">
-    <interface ip-addr="192.168.10.7" status="1" snmp-primary="N">
+  <node location="data-center" foreign-id="rt-dc-39" node-label="rt-dc-39">
+    <interface ip-addr="192.168.42.39" status="1" snmp-primary="N">
       <monitored-service service-name="ICMP"/>
     </interface>
     <asset name="longitude" value="9.1685303"/>
     <asset name="latitude" value="48.8258763"/>
   </node>
-
-  <node location="location" foreign-id="location-r01" node-label="location-r01">
-    <interface ip-addr="192.168.50.5" status="1" snmp-primary="N">
+  <node location="location-01" foreign-id="rt-lo01-69" node-label="rt-lo01-69">
+    <interface ip-addr="192.168.42.69" status="1" snmp-primary="N">
       <monitored-service service-name="ICMP"/>
     </interface>
     <asset name="longitude" value="-78.8463367"/>
     <asset name="latitude" value="35.7461488"/>
   </node>
-
-  <node location="location" foreign-id="location-r02" node-label="location-r02">
-    <interface ip-addr="192.168.50.6" status="1" snmp-primary="N">
+  <node location="location-01" foreign-id="rt-lo01-70" node-label="rt-lo01-70">
+    <interface ip-addr="192.168.42.70" status="1" snmp-primary="N">
       <monitored-service service-name="ICMP"/>
     </interface>
     <asset name="longitude" value="-78.8463367"/>
     <asset name="latitude" value="35.7461488"/>
   </node>
-
-  <node location="location" foreign-id="location-r03" node-label="location-r03">
-    <interface ip-addr="192.168.50.7" status="1" snmp-primary="N">
+  <node location="location-01" foreign-id="rt-lo01-71" node-label="rt-lo01-71">
+    <interface ip-addr="192.168.42.71" status="1" snmp-primary="N">
       <monitored-service service-name="ICMP"/>
     </interface>
     <asset name="longitude" value="-78.8463367"/>
