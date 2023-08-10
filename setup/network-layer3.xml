@@ -24,11 +24,23 @@
         <data key="vertex-status-provider">true</data>
 
         <!-- Local System -->
+        <node id="cortex">
+            <data key="foreignSource">opennms-stack</data>
+            <data key="label">cortex</data>
+            <data key="foreignID">cortex</data>
+            <data key="iconKey">server</data>
+        </node>
         <node id="database">
             <data key="foreignSource">opennms-stack</data>
             <data key="label">database</data>
             <data key="foreignID">database</data>
             <data key="iconKey">database</data>
+        </node>
+        <node id="sentinel-dc-12">
+            <data key="foreignSource">opennms-stack</data>
+            <data key="label">cortex</data>
+            <data key="foreignID">cortex</data>
+            <data key="iconKey">server</data>
         </node>
         <node id="horizon">
             <data key="foreignSource">opennms-stack</data>
@@ -36,77 +48,115 @@
             <data key="foreignID">horizon</data>
             <data key="iconKey">opennms_server</data>
         </node>
-
-        <node id="r01">
-            <data key="foreignSource">bgp-routers</data>
-            <data key="label">r01</data>
-            <data key="foreignID">r01</data>
+        <node id="grafana">
+            <data key="foreignSource">opennms-stack</data>
+            <data key="label">grafana</data>
+            <data key="foreignID">grafana</data>
             <data key="iconKey">server</data>
         </node>
 
-        <node id="r02">
+        <!-- BGP Router Data Center -->
+        <node id="rt-dc-37">
             <data key="foreignSource">bgp-routers</data>
-            <data key="label">r02</data>
-            <data key="foreignID">r02</data>
+            <data key="label">rt-dc-37</data>
+            <data key="foreignID">rt-dc-37</data>
+            <data key="iconKey">server</data>
+        </node>
+        <node id="rt-dc-38">
+            <data key="foreignSource">bgp-routers</data>
+            <data key="label">rt-dc-38</data>
+            <data key="foreignID">rt-dc-38</data>
+            <data key="iconKey">server</data>
+        </node>
+        <node id="rt-dc-39">
+            <data key="foreignSource">bgp-routers</data>
+            <data key="label">rt-dc-39</data>
+            <data key="foreignID">rt-dc-39</data>
             <data key="iconKey">server</data>
         </node>
 
-        <node id="r03">
+        <!-- BGP Router location 01 -->
+        <node id="rt-lo01-69">
             <data key="foreignSource">bgp-routers</data>
-            <data key="label">r03</data>
-            <data key="foreignID">r03</data>
+            <data key="label">rt-lo01-69</data>
+            <data key="foreignID">rt-lo01-69</data>
             <data key="iconKey">server</data>
         </node>
-
-        <node id="location-r01">
+        <node id="rt-lo01-70">
             <data key="foreignSource">bgp-routers</data>
-            <data key="label">location-r01</data>
-            <data key="foreignID">location-r01</data>
+            <data key="label">rt-lo01-70</data>
+            <data key="foreignID">rt-lo01-70</data>
             <data key="iconKey">server</data>
         </node>
-
-        <node id="location-r02">
+        <node id="rt-lo01-71">
             <data key="foreignSource">bgp-routers</data>
-            <data key="label">location-r02</data>
-            <data key="foreignID">location-r02</data>
-            <data key="iconKey">server</data>
-        </node>
-
-        <node id="location-r03">
-            <data key="foreignSource">bgp-routers</data>
-            <data key="label">location-r03</data>
-            <data key="foreignID">location-r03</data>
+            <data key="label">rt-lo01-71</data>
+            <data key="foreignID">rt-lo01-71</data>
             <data key="iconKey">server</data>
         </node>
 
         <!-- Networks -->
-        <node id="net-central">
-            <data key="label">192.168.10.0/24</data>
+        <node id="net-onms">
+            <data key="label">192.168.42.0/27</data>
             <data key="iconKey">vmware-network</data>
         </node>
-        <node id="net-location">
-            <data key="label">192.168.50.0/24</data>
+        <node id="net-mgmt-dc">
+            <data key="label">192.168.42.32/27</data>
+            <data key="iconKey">vmware-network</data>
+        </node>
+        <node id="net-mgmt-lo01">
+            <data key="label">192.168.42.64/27</data>
+            <data key="iconKey">vmware-network</data>
+        </node>
+        <node id="ptp-100-101">
+            <data key="label">192.168.42.96/29</data>
+            <data key="iconKey">vmware-network</data>
+        </node>
+        <node id="ptp-108-109">
+            <data key="label">192.168.42.104/29</data>
+            <data key="iconKey">vmware-network</data>
+        </node>
+        <node id="ptp-116-117">
+            <data key="label">192.168.42.112/29</data>
+            <data key="iconKey">vmware-network</data>
+        </node>
+        <node id="ptp-124-125">
+            <data key="label">192.168.42.120/29</data>
             <data key="iconKey">vmware-network</data>
         </node>
 
-        <!-- Branch -->
-        <node id="minion-01">
+        <!-- Data Center -->
+        <node id="data-center">
             <data key="foreignSource">Minions</data>
-            <data key="label">minion-01</data>
-            <data key="foreignID">minion-01</data>
+            <data key="label">minion-dc-20</data>
+            <data key="foreignID">minion-dc-20</data>
         </node>
 
-        <edge id="horizon-net-central" source="horizon" target="net-central"/>
-        <edge id="database-net-central" source="database" target="net-central"/>
-        <edge id="r01-net-central" source="r01" target="net-central"/>
-        <edge id="r02-net-central" source="r02" target="net-central"/>
-        <edge id="r03-net-central" source="r03" target="net-central"/>
+        <!-- Location 01 -->
+        <node id="location-01">
+            <data key="foreignSource">Minions</data>
+            <data key="label">minion-lo01-24</data>
+            <data key="foreignID">minion-lo01-24</data>
+        </node>
 
-        <edge id="minion-01-net-central" source="minion-01" target="net-central"/>
-        <edge id="minion-01-net-location" source="minion-01" target="net-location"/>
+        <edge id="cortex-net-onms" source="cortex" target="net-onms"/>
+        <edge id="database-net-onms" source="database" target="net-onms"/>
+        <edge id="sentinel-dc-12-net-onms" source="sentinel-dc-12" target="net-onms"/>
+        <edge id="horizon-net-onms" source="horizon" target="net-onms"/>
+        <edge id="grafana-net-onms" source="grafana" target="net-onms"/>
 
-        <edge id="location-r01-net-location" source="location-r01" target="net-location"/>
-        <edge id="location-r02-net-location" source="location-r02" target="net-location"/>
-        <edge id="location-r03-net-location" source="location-r03" target="net-location"/>
+        <edge id="minion-dc-20-net-onms" source="minion-dc-20" target="net-onms"/>
+        <edge id="minion-dc-20-net-mgmt-lo01" source="minion-01" target="net-mgmt-lo01"/>
+
+        <edge id="rt-dc-37-net-mgmt-dc" source="rt-dc-37" target="net-mgmt-dc"/>
+        <edge id="rt-dc-38-net-mgmt-dc" source="rt-dc-38" target="net-mgmt-dc"/>
+        <edge id="rt-dc-39-net-mgmt-dc" source="rt-dc-39" target="net-mgmt-dc"/>
+
+        <edge id="minion-lo01-24-net-mgmt-lo01" source="minion-lo01-24" target="net-onms"/>
+        <edge id="minion-lo01-24-net-mgmt-lo01" source="minion-lo01-24" target="net-mgmt-lo01"/>
+
+        <edge id="rt-lo01-69-net-mgmt-lo01" source="rt-lo01-69" target="net-mgmt-lo01"/>
+        <edge id="rt-lo01-70-net-mgmt-lo01" source="rt-lo01-70" target="net-mgmt-lo01"/>
+        <edge id="rt-lo01-71-net-mgmt-lo01" source="rt-lo01-71" target="net-mgmt-lo01"/>
     </graph>
 </graphml>

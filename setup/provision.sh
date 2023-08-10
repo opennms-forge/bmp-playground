@@ -13,18 +13,27 @@ done
 echo "    DONE"
 
 #
-# Setup Demo data with foreign sources, requisitions and a topology
+# Setup BGP network data with foreign sources, requisitions and a topology
 #
-echo -n "Create Foreign Sources                             ... "
+echo -n "Create Foreign Source: OpenNMS Stack               ... "
 curl -s -u ${OPENNMS_USER}:${OPENNMS_PASS} \
      -X POST \
      -H "Content-Type: application/xml" \
      -H "Accept: application/xml" \
-     -d @foreign-source.xml \
+     -d @foreign-source-opennms-stack.xml \
      http://${OPENNMS_HOST}:${OPENNMS_PORT}/opennms/rest/foreignSources
 echo "DONE"
 
-echo -n "Create Requisition OpenNMS Stack                   ... "
+echo -n "Create Foreign Source: BGP Routers                 ... "
+curl -s -u ${OPENNMS_USER}:${OPENNMS_PASS} \
+     -X POST \
+     -H "Content-Type: application/xml" \
+     -H "Accept: application/xml" \
+     -d @foreign-source-bgp-routers.xml \
+     http://${OPENNMS_HOST}:${OPENNMS_PORT}/opennms/rest/foreignSources
+echo "DONE"
+
+echo -n "Create Requisition: OpenNMS Stack                  ... "
 curl -s -u ${OPENNMS_USER}:${OPENNMS_PASS} \
      -X POST \
      -H "Content-Type: application/xml" \
@@ -33,7 +42,7 @@ curl -s -u ${OPENNMS_USER}:${OPENNMS_PASS} \
      http://${OPENNMS_HOST}:${OPENNMS_PORT}/opennms/rest/requisitions
 echo "DONE"
 
-echo -n "Create Requisition BGP Router                      ... "
+echo -n "Create Requisition: BGP Routers                    ... "
 curl -s -u ${OPENNMS_USER}:${OPENNMS_PASS} \
      -X POST \
      -H "Content-Type: application/xml" \
@@ -42,19 +51,19 @@ curl -s -u ${OPENNMS_USER}:${OPENNMS_PASS} \
      http://${OPENNMS_HOST}:${OPENNMS_PORT}/opennms/rest/requisitions
 echo "DONE"
 
-echo -n "Import requisition for OpenNMS Stack               ... "
+echo -n "Import requisition: OpenNMS Stack                  ... "
 curl -s -u ${OPENNMS_USER}:${OPENNMS_PASS} \
      -X PUT \
      http://${OPENNMS_HOST}:${OPENNMS_PORT}/opennms/rest/requisitions/opennms-stack/import
 echo "DONE"
 
-echo -n "Import requisition for BGP Router                  ... "
+echo -n "Import requisition: BGP Routers                    ... "
 curl -s -u ${OPENNMS_USER}:${OPENNMS_PASS} \
      -X PUT \
      http://${OPENNMS_HOST}:${OPENNMS_PORT}/opennms/rest/requisitions/bgp-routers/import
 echo "DONE"
 
-echo -n "Create GraphML layer 3 network                     ... "
+echo -n "Create GraphML: Layer 3 network                    ... "
 curl -s -u ${OPENNMS_USER}:${OPENNMS_PASS} \
     -X DELETE \
     http://${OPENNMS_HOST}:${OPENNMS_PORT}/opennms/rest/graphml/network-layer3
@@ -67,7 +76,7 @@ curl -s -u ${OPENNMS_USER}:${OPENNMS_PASS} \
 echo "DONE"
 
 
-echo -n "Create GraphML BGP network                         ... "
+echo -n "Create GraphML: BGP network                        ... "
 curl -s -u ${OPENNMS_USER}:${OPENNMS_PASS} \
     -X DELETE \
     http://${OPENNMS_HOST}:${OPENNMS_PORT}/opennms/rest/graphml/network-bgp
@@ -78,3 +87,4 @@ curl -s -u ${OPENNMS_USER}:${OPENNMS_PASS} \
     -d @network-bgp.xml \
     http://${OPENNMS_HOST}:${OPENNMS_PORT}/opennms/rest/graphml/network-bgp
 echo "DONE"
+
