@@ -1,0 +1,8 @@
+<datacollection-group xmlns="http://xmlns.opennms.org/xsd/config/datacollection" name="Sentinel">
+   <resourceType name="ejnGgsnGtpcIndex" label="GGSN Control PICs" resourceLabel="CPIC: ${ggsnGtpcAddr} (${ggsnGtpcStatus})">
+      <persistenceSelectorStrategy class="org.opennms.netmgt.collection.support.PersistAllSelectorStrategy"/>
+      <storageStrategy class="org.opennms.netmgt.dao.support.SiblingColumnStorageStrategy">
+         <parameter key="sibling-column-name" value="ggsnGtpcAddr"/>
+      </storageStrategy>
+   </resourceType>
+</datacollection-group>
